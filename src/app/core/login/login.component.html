@@ -1,0 +1,63 @@
+<div class="login-container">
+  <h1 class="title">Log in</h1>
+  <form [formGroup]="loginForm">
+    <div class="input-wrapper">
+      <label class="input-label" for="username">Username</label>
+      <input
+        class="input-field"
+        type="text"
+        id="username"
+        placeholder="enter your username"
+        formControlName="username"
+      />
+    </div>
+    <div
+      class="error-wrapper"
+      *ngIf="
+        loginForm.controls['username'].errors &&
+        loginForm.controls['username'].touched
+      "
+    >
+      <p class="error-text">This field is required</p>
+    </div>
+
+    <div class="input-wrapper">
+      <label class="input-label" for="password">Password</label>
+      <input
+        class="input-field"
+        type="password"
+        id="password"
+        placeholder="enter your password"
+        formControlName="password"
+      />
+    </div>
+    <div
+      class="error-wrapper"
+      *ngIf="
+        loginForm.controls['password'].errors &&
+        loginForm.controls['password'].touched
+      "
+    >
+      <p class="error-text">This field is required</p>
+    </div>
+
+    <div class="chehckbox-wrapper">
+      <input
+        class="input-checkbox"
+        type="checkbox"
+        formControlName="rememberMe"
+      />
+      <span class="checkbox-text">Remember me</span>
+    </div>
+    <div class="submit-wrapper">
+      <button
+        class="submit-button"
+        type="submit"
+        (click)="submitForm(loginForm.value)"
+        [disabled]="loginForm.invalid"
+      >
+        Log in
+      </button>
+    </div>
+  </form>
+</div>
