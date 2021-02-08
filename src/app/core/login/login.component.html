@@ -1,6 +1,6 @@
 <div class="login-container">
   <h1 class="title">Log in</h1>
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" #f="ngForm">
     <div class="input-wrapper">
       <label class="input-label" for="username">Username</label>
       <input
@@ -14,11 +14,32 @@
     <div
       class="error-wrapper"
       *ngIf="
-        loginForm.controls['username'].errors &&
-        loginForm.controls['username'].touched
+        loginForm.get('username')?.invalid &&
+        loginForm.get('username')?.errors &&
+        (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)
       "
     >
-      <p class="error-text">This field is required</p>
+      <p
+        class="error-text"
+        *ngIf="loginForm.get('username')?.hasError('email')"
+      >
+        Valid email is required
+      </p>
+    </div>
+    <div
+      class="error-wrapper"
+      *ngIf="
+        loginForm.get('username')?.invalid &&
+        loginForm.get('username')?.errors &&
+        (loginForm.get('username')?.dirty || loginForm.get('username')?.touched)
+      "
+    >
+      <p
+        class="error-text"
+        *ngIf="loginForm.get('username')?.hasError('required')"
+      >
+        This field is required
+      </p>
     </div>
 
     <div class="input-wrapper">
@@ -34,11 +55,17 @@
     <div
       class="error-wrapper"
       *ngIf="
-        loginForm.controls['password'].errors &&
-        loginForm.controls['password'].touched
+        loginForm.get('password')?.invalid &&
+        loginForm.get('password')?.errors &&
+        (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
       "
     >
-      <p class="error-text">This field is required</p>
+      <p
+        class="error-text"
+        *ngIf="loginForm.get('password')?.hasError('required')"
+      >
+        This field is required
+      </p>
     </div>
 
     <div class="chehckbox-wrapper">
@@ -56,8 +83,11 @@
         (click)="submitForm(loginForm.value)"
         [disabled]="loginForm.invalid"
       >
-        Log in
+        Login
       </button>
+    </div>
+    <div class="error-wrapper" *ngIf="f.submitted">
+      <p class="error-text">{{ errorMessage }}</p>
     </div>
   </form>
 </div>
