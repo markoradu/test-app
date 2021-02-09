@@ -1,9 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService, LoginRequest, LoginResponse } from '../auth/auth.service';
+import {
+  AuthService,
+  ILoginRequest,
+  ILoginResponse,
+} from '../auth/auth.service';
 import { debounceTime } from 'rxjs/operators';
+import * as AUTH from '../auth/auth.actions';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '../../app.reducer';
+import { IAccount } from 'src/app/shared/interfaces/account.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
@@ -11,7 +22,12 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private store: Store<fromRoot.State>,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -33,17 +49,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  submitForm(value: LoginRequest): void {
-    this.auth.login(value).subscribe(
-      (response: LoginResponse) => {
-        localStorage.setItem('token', response.id_token);
-        this.errorMessage = '';
-      },
-      (error) => {
-        console.log(error);
-        this.errorMessage = error.error.detail;
-      }
-    );
-    this.auth.getData().subscribe((result) => console.log(result));
+  submitForm(value: ILoginRequest): void {
+    this.errorMessage = '';
+    if (value) {
+      this.auth.login(value).subscribe(
+        (response: ILoginResponse) => {
+          localStorage.setItem('token', response.id_token);
+          this.auth.getData().subscribe((userData: IAccount) => {
+            this.store.dispatch(new AUTH.Authenticate(userData));
+            //this.router.navigate(['news']);
+          });
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error);
+          this.errorMessage = error.error.detail;
+        }
+      );
+    }
   }
 }

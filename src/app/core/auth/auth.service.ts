@@ -1,30 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IAccount } from 'src/app/shared/interfaces/account.model';
 
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  login(contex: LoginRequest): Observable<LoginResponse> {
+  login(contex: ILoginRequest): Observable<ILoginResponse> {
     const uri = 'authenticate';
 
-    return this.http.post<LoginResponse>(uri, contex);
+    return this.http.post<ILoginResponse>(uri, contex);
   }
 
-  getData() {
+  getData(): Observable<IAccount> {
     const uri = 'account';
 
-    return this.http.get(uri);
+    return this.http.get<IAccount>(uri);
   }
+
 }
 
-export interface LoginRequest {
+export interface ILoginRequest {
   username: string;
   password: string;
   rememberMe: boolean;
 }
 
-export interface LoginResponse {
+export interface ILoginResponse {
   id_token: string;
 }
