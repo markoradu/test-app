@@ -11,7 +11,6 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../../app.reducer';
 import { IAccount } from 'src/app/shared/interfaces/account.model';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
-    private store: Store<fromRoot.State>,
-    private router: Router
+    private store: Store<fromRoot.State>
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +42,6 @@ export class LoginComponent implements OnInit {
     });
 
     this.loginForm.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
-      console.log(value);
       this.errorMessage = '';
     });
   }
@@ -57,11 +54,9 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', response.id_token);
           this.auth.getData().subscribe((userData: IAccount) => {
             this.store.dispatch(new AUTH.Authenticate(userData));
-            //this.router.navigate(['news']);
           });
         },
         (error: HttpErrorResponse) => {
-          console.log(error);
           this.errorMessage = error.error.detail;
         }
       );

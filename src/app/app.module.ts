@@ -1,6 +1,6 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { NewsComponent } from './core/news/news.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
 import { HomeComponent } from './core/home/home.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, NewsComponent, HomeComponent],
@@ -23,6 +24,8 @@ import { HomeComponent } from './core/home/home.component';
     ReactiveFormsModule,
     NgbModule,
     StoreModule.forRoot(reducers),
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [
     {

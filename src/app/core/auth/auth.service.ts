@@ -18,7 +18,6 @@ export class AuthService {
 
     return this.http.get<IAccount>(uri);
   }
-
 }
 
 export interface ILoginRequest {

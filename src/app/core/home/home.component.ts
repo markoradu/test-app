@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromRoot from '../../app.reducer';
-import * as AUTH from '../auth/auth.actions'
+import * as AUTH from '../auth/auth.actions';
 
 @Component({
   selector: 'app-home',

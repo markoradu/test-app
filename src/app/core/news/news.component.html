@@ -1,1 +1,31 @@
-<p>news works!</p>
+<div class="container">
+  <ul>
+    <li
+      *ngFor="
+        let item of news
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: page,
+                totalItems: news.length
+              }
+      "
+    >
+      {{ item.title }}
+    </li>
+  </ul>
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    [responsive]="true"
+    (pageChange)="handlePageChange($event)"
+  ></pagination-controls>
+  <label
+    >Items per page: Items per Page:
+    <select (change)="handlePageSizeChange($event)" [ngModel]="itemsPerPage">
+      <option value="1">1</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+    </select>
+  </label>
+</div>
