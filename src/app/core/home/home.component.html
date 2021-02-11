@@ -1,9 +1,15 @@
 <div class="container">
   <ng-container *ngIf="isAuthenticated$ | async; else notauth">
+    <div>
+      <h1>Welcome to the best news</h1>
+    </div>
     <app-news></app-news>
     <button (click)="logout()">Logout</button>
   </ng-container>
   <ng-template #notauth>
+    <div>
+      <h1>Login and enjoy</h1>
+    </div>
     <app-login></app-login>
   </ng-template>
 </div>
