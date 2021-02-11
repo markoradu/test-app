@@ -12,6 +12,6 @@ export class NewsService {
   getNews(filter: any): Observable<any> {
     const uri = 'news';
 
-    return this.http.get<News[]>(uri, { params: filter });
+    return this.http.get<News[]>(uri, { params: filter, observe: 'response' });
   }
 }

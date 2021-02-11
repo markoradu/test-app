@@ -14,9 +14,10 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
 import { HomeComponent } from './core/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NewsItemComponent } from './core/news/news-item/news-item.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NewsComponent, HomeComponent],
+  declarations: [AppComponent, LoginComponent, NewsComponent, HomeComponent, NewsItemComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
