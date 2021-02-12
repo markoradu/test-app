@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { News } from 'src/app/shared/interfaces/news.model';
+
 
 @Component({
   selector: 'app-news-item',
@@ -8,8 +9,13 @@ import { News } from 'src/app/shared/interfaces/news.model';
 })
 export class NewsItemComponent implements OnInit {
   @Input() data!: News;
+  @Output() onClick = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  click() {
+    this.onClick.emit(this.data);
+  }
 }

@@ -11,24 +11,23 @@
               }
       "
     >
-      <app-news-item [data]="item"></app-news-item>
+      <app-news-item [data]="item" (onClick)="openModal($event)"></app-news-item>
     </div>
   </ng-container>
 </div>
 <div class="controls-container">
-    <pagination-controls
-      previousLabel="Prev"
-      nextLabel="Next"
-      [responsive]="true"
-      (pageChange)="handlePageChange($event)"
-    ></pagination-controls>
-    <label
-      >Items per page:
-      <select (change)="handlePageSizeChange($event)" [ngModel]="size">
-        <option value="1">1</option>
-        <option value="5">5</option>
-        <option value="10">10</option>
-      </select>
-    </label>
-  </div>
-
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    [responsive]="true"
+    (pageChange)="handlePageChange($event)"
+  ></pagination-controls>
+  <label
+    >Items per page:
+    <select (change)="handlePageSizeChange($event)" [ngModel]="size">
+      <option value="1">1</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+    </select>
+  </label>
+</div>

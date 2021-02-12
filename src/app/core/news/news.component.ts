@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { News } from 'src/app/shared/interfaces/news.model';
+import { NewsModalComponent } from 'src/app/shared/modals/news-modal/news-modal.component';
 import { NewsService } from './news.service';
 
 @Component({
@@ -10,12 +12,16 @@ import { NewsService } from './news.service';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent implements OnInit {
-  news: News[] = [];
   page = 1;
   size = 5;
-  news$!: Observable<{items: any[]; totalAmountOfItems: number}>;
+  news$!: Observable<{ items: any[]; totalAmountOfItems: number }>;
 
-  constructor(private newsService: NewsService) {}
+
+
+  constructor(
+    private newsService: NewsService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.getData();
@@ -42,5 +48,10 @@ export class NewsComponent implements OnInit {
     this.size = +event.target.value;
     this.page = 0;
     this.getData();
+  }
+
+  openModal($event: any) {
+    const modalRef = this.modalService.open(NewsModalComponent);
+    modalRef.componentInstance.news = $event;
   }
 }

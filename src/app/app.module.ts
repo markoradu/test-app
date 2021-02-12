@@ -15,9 +15,17 @@ import { reducers } from './app.reducer';
 import { HomeComponent } from './core/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewsItemComponent } from './core/news/news-item/news-item.component';
+import { NewsModalComponent } from './shared/modals/news-modal/news-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, NewsComponent, HomeComponent, NewsItemComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    NewsComponent,
+    HomeComponent,
+    NewsItemComponent,
+    NewsModalComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -26,7 +34,7 @@ import { NewsItemComponent } from './core/news/news-item/news-item.component';
     NgbModule,
     StoreModule.forRoot(reducers),
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     {
