@@ -1,0 +1,28 @@
+.filters-wrapper {
+  grid-area: filters;
+}
+.navigation-wrapper {
+  grid-area: navigation;
+}
+.list-wrapper {
+  grid-area: lists;
+}
+
+.tournaments-container {
+  display: grid;
+  grid-template-areas:
+    "filters navigation"
+    "filters lists";
+  grid-gap: 1rem;
+  padding: 1rem;
+
+  .filters-wrapper {
+    text-align: center;
+  }
+  .navigation-wrapper {
+    text-align: center;
+  }
+  .list-wrapper {
+    text-align: center;
+  }
+}

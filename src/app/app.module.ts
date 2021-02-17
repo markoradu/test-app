@@ -16,6 +16,11 @@ import { HomeComponent } from './core/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewsItemComponent } from './core/news/news-item/news-item.component';
 import { NewsModalComponent } from './shared/modals/news-modal/news-modal.component';
+import { TournamentsComponent } from './core/tournaments/tournaments.component';
+import { TournamentsFiltersComponent } from './core/tournaments/tournaments-filters/tournaments-filters.component';
+import { TournamentsItemComponent } from './core/tournaments/tournaments-item/tournaments-item.component';
+import { TournamentsNavigationComponent } from './core/tournaments/tournaments-navigation/tournaments-navigation.component';
+import { TournamentsListComponent } from './core/tournaments/tournaments-list/tournaments-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,11 @@ import { NewsModalComponent } from './shared/modals/news-modal/news-modal.compon
     HomeComponent,
     NewsItemComponent,
     NewsModalComponent,
+    TournamentsComponent,
+    TournamentsFiltersComponent,
+    TournamentsItemComponent,
+    TournamentsNavigationComponent,
+    TournamentsListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,22 @@
 <div class="container">
+  <h1>Welcome to the test app</h1>
   <ng-container *ngIf="isAuthenticated$ | async; else notauth">
-    <div>
-      <h1>Welcome to the best news</h1>
-    </div>
-    <app-news></app-news>
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+      <li ngbNavItem>
+        <a ngbNavLink>Tournaments</a>
+        <ng-template ngbNavContent
+          ><app-tournaments></app-tournaments
+        ></ng-template>
+      </li>
+      <li ngbNavItem>
+        <a ngbNavLink>News</a>
+        <ng-template ngbNavContent><app-news></app-news></ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
     <button (click)="logout()">Logout</button>
   </ng-container>
   <ng-template #notauth>
-    <div>
-      <h1>Login and enjoy</h1>
-    </div>
     <app-login></app-login>
   </ng-template>
 </div>
