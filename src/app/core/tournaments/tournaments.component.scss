@@ -4,15 +4,16 @@
 .navigation-wrapper {
   grid-area: navigation;
 }
-.list-wrapper {
-  grid-area: lists;
+.item-wrapper {
+  grid-area: items;
 }
 
 .tournaments-container {
+  height: 100%;
   display: grid;
   grid-template-areas:
     "filters navigation"
-    "filters lists";
+    "filters items";
   grid-gap: 1rem;
   padding: 1rem;
 

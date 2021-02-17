@@ -1,11 +1,33 @@
-<div class="tournaments-container">
-  <div class="filters-wrapper">
-    <app-tournaments-filters></app-tournaments-filters>
-  </div>
-  <div class="navigation-wrapper">
-    <app-tournaments-navigation></app-tournaments-navigation>
-  </div>
-  <div class="list-wrapper">
-    <app-tournaments-list></app-tournaments-list>
-  </div>
+<div class="tournaments-container" *ngIf="tournaments$ | async as tournaments">
+  <ng-container>
+    <div class="filters-wrapper">
+      <app-tournaments-filters></app-tournaments-filters>
+    </div>
+    <div class="navigation-wrapper">
+      <app-tournaments-navigation></app-tournaments-navigation>
+    </div>
+    <div class="item-wrapper">
+      <div
+        *ngFor="
+          let item of tournaments.items
+            | paginate
+              : {
+                  itemsPerPage: size,
+                  currentPage: page,
+                  totalItems: tournaments.totalAmountOfItems
+                }
+        "
+      >
+        <app-tournaments-item [data]="item"></app-tournaments-item>
+      </div>
+      <div>
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          [responsive]="true"
+          (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+      </div>
+    </div>
+  </ng-container>
 </div>

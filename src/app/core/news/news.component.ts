@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,8 +21,6 @@ export class NewsComponent implements OnInit {
   page = 1;
   size = 5;
   news$!: Observable<{ items: any[]; totalAmountOfItems: number }>;
-
-
 
   constructor(
     private newsService: NewsService,

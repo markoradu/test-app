@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tournaments-item',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tournaments-item.component.scss']
 })
 export class TournamentsItemComponent implements OnInit {
+  @Input() data: any;
 
   constructor() { }
 
