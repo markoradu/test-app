@@ -20,6 +20,7 @@ import { TournamentsComponent } from './core/tournaments/tournaments.component';
 import { TournamentsFiltersComponent } from './core/tournaments/tournaments-filters/tournaments-filters.component';
 import { TournamentsItemComponent } from './core/tournaments/tournaments-item/tournaments-item.component';
 import { TournamentsNavigationComponent } from './core/tournaments/tournaments-navigation/tournaments-navigation.component';
+import { TournamentItemFullComponent } from './core/tournaments/tournaments-item/tournament-item-full/tournament-item-full.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TournamentsNavigationComponent } from './core/tournaments/tournaments-n
     TournamentsFiltersComponent,
     TournamentsItemComponent,
     TournamentsNavigationComponent,
+    TournamentItemFullComponent,
   ],
   imports: [
     BrowserModule,

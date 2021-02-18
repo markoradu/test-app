@@ -1,9 +1,4 @@
-import {
-  AfterViewChecked,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TournamentService } from './tournaments.service';
