@@ -1,11 +1,14 @@
+<div class="navigation-wrapper">
+      <app-tournaments-navigation
+        (toggleLayout)="changeLayout($event)"
+      ></app-tournaments-navigation>
+</div>
 <div class="tournaments-container" *ngIf="tournaments$ | async as tournaments">
   <ng-container>
     <div class="filters-wrapper">
       <app-tournaments-filters></app-tournaments-filters>
     </div>
-    <div class="navigation-wrapper">
-      <app-tournaments-navigation></app-tournaments-navigation>
-    </div>
+
     <div class="item-wrapper">
       <div
         *ngFor="
@@ -18,8 +21,8 @@
                 }
         "
       >
-        <app-tournaments-item [data]="item"></app-tournaments-item>
-        <app-tournament-item-full [datas]="item"></app-tournament-item-full>
+        <app-tournaments-item [data]="item" *ngIf="layout === 'basic'"></app-tournaments-item>
+        <app-tournament-item-full [datas]="item" *ngIf="layout === 'full'"></app-tournament-item-full>
       </div>
       <div>
         <pagination-controls

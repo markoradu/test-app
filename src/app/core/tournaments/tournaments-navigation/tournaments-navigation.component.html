@@ -1,5 +1,26 @@
 <div class="display-container">
   <h1>Display style:</h1>
-  <div><button>Short</button></div>
-  <div><button>Full</button></div>
+  <div>
+    <input
+      type="radio"
+      name="display"
+      id="basic"
+      [value]="displayFilters.Basic"
+      [checked]="true"
+      [(ngModel)]="radioSelected"
+      (change)="switchLayout()"
+    />
+    <label for="basic">Basic</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      name="display"
+      id="full"
+      [value]="displayFilters.Full"
+      [(ngModel)]="radioSelected"
+      (change)="switchLayout()"
+    />
+    <label for="full">Full</label>
+  </div>
 </div>

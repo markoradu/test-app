@@ -1,14 +1,10 @@
 import {
-  AfterViewChecked,
-  ChangeDetectorRef,
   Component,
-  Input,
   OnInit,
 } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { News } from 'src/app/shared/interfaces/news.model';
 import { NewsModalComponent } from 'src/app/shared/modals/news-modal/news-modal.component';
 import { NewsService } from './news.service';
 

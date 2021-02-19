@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { DisplayFilters } from 'src/app/shared/enums/display.enum';
 import { TournamentService } from './tournaments.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class TournamentsComponent implements OnInit {
   tournaments$!: Observable<{ items: any[]; totalAmountOfItems: number }>;
   page = 1;
   size = 3;
+  displayFilters = DisplayFilters;
+  layout = this.displayFilters.Basic;
 
   constructor(private tournamentService: TournamentService) {}
 
@@ -33,6 +36,11 @@ export class TournamentsComponent implements OnInit {
 
   handlePageChange(event: number): void {
     this.page = event;
+    console.log(this.layout);
     this.getData();
+  }
+
+  changeLayout($event: any) {
+    this.layout = $event;
   }
 }
