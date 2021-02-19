@@ -1,3 +1,21 @@
+.container {
+  height: 100%;
+
+  .controls-wrapper {
+    border: 1px solid black;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    pagination-controls {
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+}
+
 .filters-wrapper {
   grid-area: filters;
 }
@@ -10,12 +28,19 @@
 
 .tournaments-container {
   height: 100%;
+
+  @media only screen and (max-width:600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
   display: grid;
   grid-template-areas:
     "filters navigation"
     "filters items";
   grid-gap: 1rem;
-  padding: 1rem;
 
   .filters-wrapper {
     text-align: center;
@@ -23,7 +48,7 @@
   .navigation-wrapper {
     text-align: center;
   }
-  .list-wrapper {
+  .item-wrapper {
     text-align: center;
   }
 }

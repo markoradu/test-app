@@ -1,13 +1,20 @@
 .item-container {
-  margin: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: row;
+  @media only screen and (max-width:600px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
   align-items: center;
   justify-content: center;
   border: 1px solid orange;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   gap: 1rem;
+  border-radius: 10px;
 
   .image {
     max-width: 100%;
@@ -15,10 +22,18 @@
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 
   .text {
     font-size: 1rem;
+    font-style: italic;
+
+    span {
+      font-size: 1.5rem;
+      font-style: normal;
+      color: orange;
+      display: block;
+    }
   }
 }
