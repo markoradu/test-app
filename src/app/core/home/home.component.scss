@@ -1,6 +1,21 @@
-.container{
+.container {
   height: 100%;
   text-align: center;
   padding: 1rem;
   margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .title {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .button {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    width: 15rem;
+    border-radius: 5rem;
+  }
 }

@@ -12,37 +12,36 @@
       <div class="filters-wrapper">
         <app-tournaments-filters></app-tournaments-filters>
       </div>
-
-      <div class="item-wrapper">
-        <div
-          *ngFor="
-            let item of tournaments.items
-              | paginate
-                : {
-                    itemsPerPage: size,
-                    currentPage: page,
-                    totalItems: tournaments.totalAmountOfItems
-                  }
-          "
-        >
-          <app-tournaments-item
-            [data]="item"
-            *ngIf="layout === 'basic'"
-          ></app-tournaments-item>
-          <app-tournament-item-full
-            [datas]="item"
-            *ngIf="layout === 'full'"
-          ></app-tournament-item-full>
-        </div>
-        <div class="controls-wrapper">
-          <pagination-controls
-            previousLabel="Prev"
-            nextLabel="Next"
-            [responsive]="true"
-            (pageChange)="handlePageChange($event)"
-          ></pagination-controls>
-        </div>
-      </div>
     </ng-container>
+    <div class="item-wrapper">
+      <div
+        *ngFor="
+          let item of tournaments.items
+            | paginate
+              : {
+                  itemsPerPage: size,
+                  currentPage: page,
+                  totalItems: tournaments.totalAmountOfItems
+                }
+        "
+      >
+        <app-tournaments-item
+          [data]="item"
+          *ngIf="layout === 'basic'"
+        ></app-tournaments-item>
+        <app-tournament-item-full
+          [datas]="item"
+          *ngIf="layout === 'full'"
+        ></app-tournament-item-full>
+      </div>
+      <div class="controls-wrapper">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          [responsive]="true"
+          (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+      </div>
+    </div>
   </div>
 </div>
