@@ -36,7 +36,6 @@ export class TournamentsComponent implements OnInit {
 
   handlePageChange(event: number): void {
     this.page = event;
-    console.log(this.layout);
     this.getData();
   }
 
