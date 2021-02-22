@@ -19,7 +19,6 @@
   .image {
     max-width: 100%;
     height: auto;
-    border-radius: 0.5rem;
   }
 
   .title {
@@ -39,7 +38,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgray;
   }
 
   .icons-container {
@@ -47,6 +46,8 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
     @media only screen and (max-width: 600px) {
       flex-direction: column;
       align-items: center;
