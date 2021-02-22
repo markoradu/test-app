@@ -1,10 +1,11 @@
 .container {
+  box-sizing: border-box;
+  margin: 0;
   height: 100%;
+  max-width: 100%;
   text-align: center;
   padding: 1rem;
-  margin: auto;
   font-family: Arial, Helvetica, sans-serif;
-
   .title {
     h1 {
       font-size: 2rem;
