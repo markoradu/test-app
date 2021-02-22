@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__Tournaments_x5F_Teams" width="50" height="50" viewBox="0 0 50 50">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#5c6881}
+        </style>
+    </defs>
+    <g id="prefix__Group_967" data-name="Group 967">
+        <g id="prefix__Capa_1_1_">
+            <path id="prefix__Path_494" d="M25 11.667a5.833 5.833 0 1 0-5.833-5.834A5.833 5.833 0 0 0 25 11.667zm0-10a4.167 4.167 0 1 1-4.167 4.166A4.167 4.167 0 0 1 25 1.667z" class="prefix__cls-1" data-name="Path 494"/>
+            <path id="prefix__Path_495" d="M35 34.167V20a7.508 7.508 0 0 0-7.5-7.5h-5A7.508 7.508 0 0 0 15 20v14.167h3.333V50H20V30.833h-1.667V32.5h-1.667V20a5.84 5.84 0 0 1 5.834-5.833h5A5.84 5.84 0 0 1 33.332 20v12.5h-1.667v-1.667H30V50h1.667V34.167z" class="prefix__cls-1" data-name="Path 495"/>
+            <path id="prefix__Path_496" d="M24.167 34.167h1.667V50h-1.667z" class="prefix__cls-1" data-name="Path 496"/>
+            <path id="prefix__Path_497" d="M41.667 18.333a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0-8.333a3.333 3.333 0 1 1-3.333 3.333A3.333 3.333 0 0 1 41.667 10z" class="prefix__cls-1" data-name="Path 497"/>
+            <path id="prefix__Path_498" d="M50 25a5.84 5.84 0 0 0-5.833-5.833h-7.5v1.667h7.5A4.173 4.173 0 0 1 48.334 25v10.834h-1.667v-1.667H45V50h1.667V37.5H50z" class="prefix__cls-1" data-name="Path 498"/>
+            <path id="prefix__Path_499" d="M36.667 35.833h-3.333V37.5h3.333V50h1.667V34.167h-1.667z" class="prefix__cls-1" data-name="Path 499"/>
+            <path id="prefix__Path_500" d="M40.833 37.5H42.5V50h-1.667z" class="prefix__cls-1" data-name="Path 500"/>
+            <path id="prefix__Path_501" d="M8.333 18.333a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0-8.333A3.333 3.333 0 1 1 5 13.333 3.333 3.333 0 0 1 8.333 10z" class="prefix__cls-1" data-name="Path 501"/>
+            <path id="prefix__Path_502" d="M5.833 20.833h7.5v-1.667h-7.5A5.842 5.842 0 0 0 0 25v12.5h3.333V50H5V34.167H3.333v1.667H1.667V25a4.172 4.172 0 0 1 4.166-4.167z" class="prefix__cls-1" data-name="Path 502"/>
+            <path id="prefix__Path_503" d="M13.333 34.167h-1.667V50h1.667V37.5h4.375v-1.667h-4.375z" class="prefix__cls-1" data-name="Path 503"/>
+            <path id="prefix__Path_504" d="M7.5 37.5h1.667V50H7.5z" class="prefix__cls-1" data-name="Path 504"/>
+        </g>
+    </g>
+</svg>

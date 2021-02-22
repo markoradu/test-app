@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__Layer_2" width="51.798" height="51.697" data-name="Layer 2" viewBox="0 0 51.798 51.697">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#5c6881;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="prefix__Layer_1" data-name="Layer 1" transform="translate(1 1)">
+        <g id="prefix___ÎÓÈ_6" data-name="ÎÓÈ 6">
+            <path id="prefix__Path_483" d="M43.147 7.913h-1.859L41.872 1H9.449l.576 6.913H8.144a7.382 7.382 0 0 0 0 14.756h3.326a14.663 14.663 0 0 0 10.177 10.323v2.573a7.681 7.681 0 0 1-5.477 7.328l-5.2 1.536V50.7h29.358v-6.3l-5.2-1.536a7.627 7.627 0 0 1-5.484-7.3v-2.572a14.639 14.639 0 0 0 10.207-10.323h3.326a7.382 7.382 0 1 0 .476-14.756zM8.681 18.836a3.549 3.549 0 0 1 0-7.082h1.675l.63 7.082z" class="prefix__cls-1" data-name="Path 483" transform="translate(-1 -1)"/>
+            <path id="prefix__Path_484" d="M52.18 22.1l.63-7.1h1.675a3.549 3.549 0 0 1 .33 7.09 2.372 2.372 0 0 1-.33 0z" class="prefix__cls-1" data-name="Path 484" transform="translate(-12.868 -4.245)"/>
+        </g>
+    </g>
+</svg>

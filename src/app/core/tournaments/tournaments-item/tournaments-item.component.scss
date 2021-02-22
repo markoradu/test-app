@@ -2,26 +2,60 @@
   margin-bottom: 1rem;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
-  border: 1px solid black;
-  font-family: Arial, Helvetica, sans-serif;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
   border-radius: 10px;
   box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
+  font-size: 1rem;
+  gap: 1rem;
+
+  .image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
 
   .title {
     font-size: 1.5rem;
-    text-transform: uppercase;
   }
 
   .text {
     font-size: 1rem;
-    font-style: italic;
 
     span {
-      font-size: 1.5rem;
-      font-style: normal;
+      color: orange;
+      text-transform: uppercase;
+    }
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1px solid gray;
+  }
+
+  .icons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    padding: 7px;
+
+    .game-text {
       color: orange;
     }
   }

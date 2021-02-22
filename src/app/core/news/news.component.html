@@ -1,6 +1,7 @@
 <div class="news-container" *ngIf="news$ | async as news">
   <ng-container>
     <div
+      class="items-container"
       *ngFor="
         let item of news.items
           | paginate
@@ -11,23 +12,26 @@
               }
       "
     >
-      <app-news-item [data]="item" (onClick)="openModal($event)"></app-news-item>
+      <app-news-item
+        [data]="item"
+        (onClick)="openModal($event)"
+      ></app-news-item>
     </div>
   </ng-container>
-</div>
-<div class="controls-container">
-  <pagination-controls
-    previousLabel="Prev"
-    nextLabel="Next"
-    [responsive]="true"
-    (pageChange)="handlePageChange($event)"
-  ></pagination-controls>
-  <label
-    >Items per page:
-    <select (change)="handlePageSizeChange($event)" [ngModel]="size">
-      <option value="1">1</option>
-      <option value="5">5</option>
-      <option value="10">10</option>
-    </select>
-  </label>
+  <div class="controls-container">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+    <label
+      >Items per page:
+      <select (change)="handlePageSizeChange($event)" [ngModel]="size">
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
+    </label>
+  </div>
 </div>

@@ -22,9 +22,9 @@
     padding: 1rem;
     grid-template-columns: 33% 33% 33%;
   }
+
+  .controls-container {
+    display: block;
+  }
 }
-.controls.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+

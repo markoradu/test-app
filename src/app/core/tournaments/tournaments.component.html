@@ -27,11 +27,11 @@
       >
         <app-tournaments-item
           [data]="item"
-          *ngIf="layout === 'basic'"
+          *ngIf="layout === 'full'"
         ></app-tournaments-item>
         <app-tournament-item-full
           [datas]="item"
-          *ngIf="layout === 'full'"
+          *ngIf="layout === 'basic'"
         ></app-tournament-item-full>
       </div>
       <div class="controls-wrapper">
