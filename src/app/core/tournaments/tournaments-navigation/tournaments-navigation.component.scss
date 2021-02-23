@@ -17,6 +17,11 @@
   }
 
   .input-wrapper {
+    #basic,
+    #full {
+      visibility: hidden;
+    }
+
     input:checked ~ label {
       color: orange;
     }

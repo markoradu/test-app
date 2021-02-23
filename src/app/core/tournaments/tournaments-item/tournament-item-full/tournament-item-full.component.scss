@@ -19,10 +19,9 @@
   box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
 
   .image {
+    background-color: orange;
     max-width: 100%;
     height: auto;
-    background-color: orange;
-    border-radius: 0.5rem;
   }
 
   .game {
@@ -46,10 +45,16 @@
   }
 
   .icon-container {
-   margin-right: 2rem;
+    margin-right: 2rem;
+    @media only screen and (max-width: 600px) {
+      margin-right: 0;
+    }
   }
 
   .image-container {
     margin-left: 2rem;
+    @media only screen and (max-width: 600px) {
+      margin-left: 0;
+    }
   }
 }
