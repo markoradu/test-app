@@ -5,8 +5,10 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+  margin-right: 1rem;
+  background-color: #f6f6f6;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 800px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -16,6 +18,12 @@
   box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
   font-size: 1rem;
   gap: 1rem;
+
+  .image-container {
+    @media only screen and (max-width: 800px) {
+      display: none;
+    }
+  }
 
   .image {
     max-width: 100%;
@@ -39,6 +47,7 @@
   .text-container {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: flex-start;
     border-bottom: 1px solid lightgray;
   }
@@ -46,15 +55,13 @@
   .icons-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
     margin-top: 1rem;
     padding: 0.5rem;
-    @media only screen and (max-width: 600px) {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
+    width: 100%;
+    @media only screen and (max-width: 800px) {
     }
     padding: 7px;
 
@@ -64,24 +71,43 @@
     }
 
     .button-container {
-      margin-left: 2rem;
-      @media only screen and (max-width: 600px) {
-        margin-left: 0;
+      @media only screen and (max-width: 800px) {
+        display: none;
       }
+      width: 100%;
       button {
         border: 1px solid orange;
         border-radius: 0.5rem;
         color: orange;
         background-color: white;
         padding: 3px;
-        width: 8rem;
+        width: 100%;
         margin: 1rem;
       }
     }
   }
 
+  .button-wrapper {
+    display: none;
+    width: 100%;
+    @media only screen and (max-width: 800px) {
+      display: block;
+    }
+    button {
+      border: 1px solid orange;
+      border-radius: 0.5rem;
+      color: orange;
+      background-color: white;
+      padding: 3px;
+      width: 100%;
+    }
+  }
+
   .star-container {
     display: flex;
+    @media only screen and (max-width: 800px) {
+      display: none;
+    }
     justify-content: flex-start;
     margin-right: 3rem;
     h1 {

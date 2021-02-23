@@ -9,18 +9,21 @@
     />
   </div>
   <div>
-    <div>
+    <div class="button-wrapper">
       <button class="game">{{ datas?.game?.name }}</button>
     </div>
-    <div>
+    <div class="button-wrapper">
       <button class="game">{{ datas?.prizeType?.name }}</button>
     </div>
   </div>
-  <div>
+  <div class="full">
     <p class="title">{{ datas?.name }}</p>
     <p class="text">Hosted by {{ datas?.organizer?.name }}</p>
   </div>
-  <div>
+  <div class="basic">
+    <p class="text"><span>Game: </span> {{ datas?.game?.name }}</p>
+  </div>
+  <div class="full">
     <p class="text">
       <span class="game-text">START DATE </span> {{ datas?.startDate | date }}
     </p>
@@ -29,13 +32,28 @@
       {{ datas?.startDate | date }}
     </p>
   </div>
-  <div>
+  <div class="basic">
+    <p class="text"><span>Platform:</span> {{ datas?.platforms[0]?.name }}</p>
+  </div>
+  <div class="full">
     <p class="game-text">PRIZE</p>
     <p class="text">{{ datas?.prizeType?.name }}</p>
   </div>
-  <div>
+  <div class="basic">
+    <p class="text"><span>Host: </span> {{ datas?.organizer?.name }}</p>
+  </div>
+  <div class="full">
     <p class="game-text">REGISTRATIONS</p>
     <p class="text">CLOSED</p>
+  </div>
+  <div class="basic">
+    <p class="text"><span>Start: </span> {{ datas?.startDate | date }}</p>
+  </div>
+  <div class="basic">
+    <p class="text"><span>Registrations: </span> Closed</p>
+  </div>
+  <div class="basic">
+    <p class="text"><span>Prize: </span> {{ datas?.prizeType?.name }}</p>
   </div>
   <div class="icon-container">
     <img
@@ -46,5 +64,8 @@
       width="19"
       height="32"
     />
+  </div>
+  <div class="button-container">
+    <button>Overview</button>
   </div>
 </div>
