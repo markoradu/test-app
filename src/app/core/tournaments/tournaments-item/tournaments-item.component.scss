@@ -16,7 +16,6 @@
   font-size: 1rem;
   gap: 1rem;
 
-
   .image {
     max-width: 100%;
     height: auto;
@@ -32,6 +31,7 @@
     span {
       color: orange;
       text-transform: uppercase;
+      font-weight: bold;
     }
   }
 
@@ -41,6 +41,7 @@
     align-items: flex-start;
     border-bottom: 1px solid lightgray;
   }
+
 
   .icons-container {
     display: flex;
@@ -59,6 +60,32 @@
 
     .game-text {
       color: orange;
+      font-weight: bold;
+    }
+
+    .button-container {
+      button {
+        border: 1px solid orange;
+        border-radius: 0.5rem;
+        color: orange;
+        background-color: white;
+        padding: 3px;
+        width: 8rem;
+        margin: 1rem;
+      }
+    }
+  }
+
+  .star-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 3rem;
+    h1 {
+      font-size: 1.5rem;
+    }
+    fa-icon {
+      color: orange;
+      font-size: 2.5rem;
     }
   }
 }

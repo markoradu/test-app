@@ -21,6 +21,7 @@ import { TournamentsFiltersComponent } from './core/tournaments/tournaments-filt
 import { TournamentsItemComponent } from './core/tournaments/tournaments-item/tournaments-item.component';
 import { TournamentsNavigationComponent } from './core/tournaments/tournaments-navigation/tournaments-navigation.component';
 import { TournamentItemFullComponent } from './core/tournaments/tournaments-item/tournament-item-full/tournament-item-full.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TournamentItemFullComponent } from './core/tournaments/tournaments-item
     StoreModule.forRoot(reducers),
     NgxPaginationModule,
     FormsModule,
+    FontAwesomeModule,
   ],
   providers: [
     {

@@ -37,10 +37,19 @@
 
   .game-text {
     color: orange;
+    font-weight: bold;
   }
 
   .title {
     font-size: 1.5rem;
     padding: 4px;
+  }
+
+  .icon-container {
+   margin-right: 2rem;
+  }
+
+  .image-container {
+    margin-left: 2rem;
   }
 }

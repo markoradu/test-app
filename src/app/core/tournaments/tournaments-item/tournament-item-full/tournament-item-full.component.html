@@ -1,9 +1,11 @@
 <div class="item-container">
-  <img
+  <div class="image-container">
+    <img
     class="image"
     src="{{ datas?.game?.logo }}"
     alt="{{ datas?.game?.name }}"
   />
+  </div>
   <div>
     <div>
       <button class="game">{{ datas?.game?.name }}</button>
@@ -32,5 +34,13 @@
   <div>
     <p class="game-text">REGISTRATIONS</p>
     <p class="text">CLOSED</p>
+  </div>
+  <div class="icon-container">
+    <img
+        class="img-fluid game-logo"
+        style="background: none"
+        src="assets/tournament/overview-arrow.svg"
+        alt="{{ datas?.name }}"
+      />
   </div>
 </div>
