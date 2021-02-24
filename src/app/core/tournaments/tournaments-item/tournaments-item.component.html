@@ -4,21 +4,55 @@
       class="image"
       src="{{ data?.game?.coverImage }}"
       alt="{{ data?.game?.name }}"
-      width="380"
-      height="300"
+      width="150"
+      height="190"
     />
   </div>
-  <div>
-    <div class="text-container">
-      <h1 class="title">{{ data.name }}</h1>
-      <p class="text"><span>Game: </span> {{ data?.game?.name }}</p>
-      <p class="text"><span>Platform:</span> {{ data?.platforms[0]?.name }}</p>
-      <p class="text"><span>Host: </span> {{ data?.organizer?.name }}</p>
-      <p class="text"><span>Start: </span> {{ data?.startDate | date }}</p>
+  <div class="text-container">
+    <h1 class="title">{{ data.name }}</h1>
+    <p class="text"><span>Game: </span> {{ data?.game?.name }}</p>
+    <p class="text"><span>Platform:</span> {{ data?.platforms[0]?.name }}</p>
+    <p class="text"><span>Host: </span> {{ data?.organizer?.name }}</p>
+    <p class="text"><span>Start: </span> {{ data?.startDate | date }}</p>
+  </div>
+  <div class="icons-container">
+    <img
+      class="image"
+      src="/assets/tournament/Teams-esplGray.svg"
+      alt="people"
+    />
+    <div>
+      <p class="game-text">Type:</p>
+      <p>{{ data?.participantType?.name }}</p>
     </div>
-    <div class="icons-container">
-      <div>
-        <img
+
+    <img
+      class="image"
+      src="/assets/tournament/Trophy-esplGray.svg"
+      alt="trophy"
+    />
+    <div>
+      <p class="game-text">Prize:</p>
+      <p>{{ data?.prizeType?.name }}</p>
+    </div>
+
+    <img
+      class="image"
+      src="/assets/tournament/Application-esplGray.svg"
+      alt="app"
+    />
+    <div>
+      <p class="game-text">Applications:</p>
+      <p>{{ data?.startDate | date }}</p>
+    </div>
+
+    <div class="button-container">
+      <button>Overview</button>
+    </div>
+  </div>
+  <div class="icons-mobile">
+    <div>
+      <img
         class="image"
         src="/assets/tournament/Teams-esplGray.svg"
         alt="people"
@@ -27,9 +61,9 @@
         <p class="game-text">Type:</p>
         <p>{{ data?.participantType?.name }}</p>
       </div>
-      </div>
-      <div>
-        <img
+    </div>
+    <div>
+      <img
         class="image"
         src="/assets/tournament/Trophy-esplGray.svg"
         alt="trophy"
@@ -38,9 +72,9 @@
         <p class="game-text">Prize:</p>
         <p>{{ data?.prizeType?.name }}</p>
       </div>
-      </div>
-      <div>
-        <img
+    </div>
+    <div>
+      <img
         class="image"
         src="/assets/tournament/Application-esplGray.svg"
         alt="app"
@@ -49,12 +83,9 @@
         <p class="game-text">Applications:</p>
         <p>{{ data?.startDate | date }}</p>
       </div>
-      </div>
-      <div class="button-container">
-        <button>Overview</button>
-      </div>
     </div>
   </div>
+
   <div class="button-wrapper">
     <button>Overview</button>
   </div>

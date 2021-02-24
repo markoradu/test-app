@@ -1,14 +1,30 @@
+.image-container {
+  grid-area: image;
+}
+.text-container {
+  grid-area: text;
+}
+.icons-container {
+  grid-area: icons;
+}
+.star-container {
+  grid-area: star;
+}
+
 .item-container {
   margin-bottom: 1rem;
   padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-right: 1rem;
   background-color: #f6f6f6;
+  margin-right: 0.5rem;
+  display: grid;
+  grid-template-areas:
+    "image text star"
+    "image icons icons";
+  grid-gap: 1rem;
+
 
   @media only screen and (max-width: 800px) {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -62,29 +78,43 @@
     padding: 0.5rem;
     width: 100%;
     @media only screen and (max-width: 800px) {
+      display: none;
     }
     padding: 7px;
-
-    .game-text {
-      color: orange;
-      font-weight: bold;
-    }
 
     .button-container {
       @media only screen and (max-width: 800px) {
         display: none;
       }
-      width: 100%;
       button {
         border: 1px solid orange;
         border-radius: 0.5rem;
         color: orange;
         background-color: white;
         padding: 3px;
-        width: 100%;
+        width: 8rem;
         margin: 1rem;
       }
     }
+  }
+
+  .icons-mobile {
+    display: none;
+    @media only screen and (max-width: 800px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 0.5rem;
+      width: 100%;
+    }
+  }
+
+  .game-text {
+    color: orange;
+    font-weight: bold;
   }
 
   .button-wrapper {
@@ -105,17 +135,18 @@
 
   .star-container {
     display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
     @media only screen and (max-width: 800px) {
       display: none;
     }
     justify-content: flex-start;
-    margin-right: 3rem;
     h1 {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
     fa-icon {
       color: orange;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       margin-left: 0.5rem;
     }
   }
