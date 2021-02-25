@@ -1,14 +1,11 @@
-.image-container {
-  grid-area: image;
-}
 .text-container {
   grid-area: text;
 }
 .icons-container {
   grid-area: icons;
 }
-.star-container {
-  grid-area: star;
+.header-container {
+  grid-area: header;
 }
 
 .item-container {
@@ -16,12 +13,14 @@
   padding: 1rem;
   background-color: #f6f6f6;
   margin-right: 0.5rem;
+  margin-left: 0.5rem;
   display: grid;
   grid-template-areas:
-    "image text star"
-    "image icons icons";
+    "header header"
+    "text text"
+    "icons icons";
   grid-gap: 1rem;
-
+  width: 100%;
 
   @media only screen and (max-width: 800px) {
     display: flex;
@@ -34,12 +33,6 @@
   box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
   font-size: 1rem;
   gap: 1rem;
-
-  .image-container {
-    @media only screen and (max-width: 800px) {
-      display: none;
-    }
-  }
 
   .image {
     max-width: 100%;
@@ -63,9 +56,17 @@
   .text-container {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
     border-bottom: 1px solid lightgray;
+    width: 100%;
+
+    .title {
+      display: none;
+      @media only screen and (max-width: 800px) {
+        display: inline;
+      }
+    }
   }
 
   .icons-container {
@@ -104,7 +105,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
       gap: 1rem;
       margin-top: 1rem;
       padding: 0.5rem;
@@ -133,21 +134,46 @@
     }
   }
 
-  .star-container {
+  .header-container {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    @media only screen and (max-width: 800px) {
-      display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .title-wrapper {
+      justify-self: flex-start;
+      h2 {
+        font-size: 1rem;
+        display: none;
+        @media only screen and (max-width: 800px) {
+          display: inline;
+        }
+      }
+      .title {
+        @media only screen and (max-width: 800px) {
+          display: none;
+        }
+      }
     }
-    justify-content: flex-start;
-    h1 {
-      font-size: 1rem;
-    }
-    fa-icon {
-      color: orange;
-      font-size: 1.5rem;
-      margin-left: 0.5rem;
+
+    .star-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      justify-self: flex-end;
+
+      h2 {
+        font-size: 1rem;
+        @media only screen and (max-width: 800px) {
+          display: none;
+        }
+      }
+      fa-icon {
+        color: orange;
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
+      }
     }
   }
 }

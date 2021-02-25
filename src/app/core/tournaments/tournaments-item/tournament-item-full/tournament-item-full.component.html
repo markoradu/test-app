@@ -4,8 +4,8 @@
       class="image"
       src="{{ datas?.game?.logo }}"
       alt="{{ datas?.game?.name }}"
-      width="80"
-      height="90"
+      width="100"
+      height="100"
     />
   </div>
   <div>
@@ -16,9 +16,15 @@
       <button class="game">{{ datas?.prizeType?.name }}</button>
     </div>
   </div>
+  <div class="mobile-status">
+    <h2>{{ datas?.status?.name || "unknown" }}</h2>
+  </div>
   <div class="full">
     <p class="title">{{ datas?.name }}</p>
     <p class="text">Hosted by {{ datas?.organizer?.name }}</p>
+  </div>
+  <div class="basic">
+    <p class="title">{{ datas?.name }}</p>
   </div>
   <div class="basic">
     <p class="text"><span>Game: </span> {{ datas?.game?.name }}</p>
