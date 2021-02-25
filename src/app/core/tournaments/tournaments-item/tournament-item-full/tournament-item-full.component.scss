@@ -32,7 +32,6 @@
   box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
 
   .image {
-    background-color: orange;
     max-width: 100%;
     height: auto;
   }
@@ -63,6 +62,14 @@
 
   .image-container {
     margin-left: 2rem;
+    .image {
+      justify-self: start;
+      background: #ffab2e;
+      padding: 1rem;
+      max-height: 7rem !important;
+      max-width: 7rem !important;
+      border-radius: 0.5rem;
+    }
     @media only screen and (max-width: 800px) {
       display: none;
     }
