@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 .text-container {
   grid-area: text;
 }
@@ -21,6 +23,7 @@
     "icons icons";
   grid-gap: 1rem;
   width: 100%;
+  font-family: "Montserrat", sans-serif;
 
   @media only screen and (max-width: 800px) {
     display: flex;
@@ -160,8 +163,8 @@
     .star-wrapper {
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
-      justify-self: flex-end;
+      align-items: center;
+      justify-content: center;
 
       h2 {
         font-size: 1rem;
