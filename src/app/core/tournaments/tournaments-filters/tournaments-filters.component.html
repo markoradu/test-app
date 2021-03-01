@@ -1,2 +1,16 @@
 <div class="filters-container">
+  <div class="search-container">
+    <form [formGroup]="tournamentFinderForm">
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Browse by tournament name"
+          formControlName="name.contains"
+          (keyup)="searchByName$.next($any($event.target).value)"
+        />
+        <fa-icon class="fas fa-search" [icon]="faSearch"></fa-icon>
+      </div>
+      <button class="button-accent" (click)="resetForm()">Clear all</button>
+    </form>
+  </div>
 </div>

@@ -1,4 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { DisplayFilters } from 'src/app/shared/enums/display.enum';
 
 @Component({

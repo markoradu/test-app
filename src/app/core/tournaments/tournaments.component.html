@@ -10,7 +10,7 @@
   >
     <ng-container>
       <div class="filters-wrapper">
-        <app-tournaments-filters></app-tournaments-filters>
+        <app-tournaments-filters (emitForm)="collectForm($event)"></app-tournaments-filters>
       </div>
     </ng-container>
     <div class="item-wrapper">

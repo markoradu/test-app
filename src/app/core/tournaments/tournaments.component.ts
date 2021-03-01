@@ -15,6 +15,7 @@ export class TournamentsComponent implements OnInit {
   size = 3;
   displayFilters = DisplayFilters;
   layout = this.displayFilters.Basic;
+  searchName!: string;
 
   constructor(private tournamentService: TournamentService) {}
 
@@ -41,5 +42,9 @@ export class TournamentsComponent implements OnInit {
 
   changeLayout($event: any) {
     this.layout = $event;
+  }
+
+  collectForm(form: any) {
+    this.searchName = form;
   }
 }
