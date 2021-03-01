@@ -15,9 +15,7 @@ export class TournamentsFiltersComponent implements OnInit {
   searchByName$: Subject<any> = new Subject<string>();
   @Output() emitForm = new EventEmitter();
 
-  constructor(
-    private fb: FormBuilder,
-  ) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -33,7 +31,8 @@ export class TournamentsFiltersComponent implements OnInit {
   }
 
   submitForm(form: any): void {
-    this.emitForm.next(form.value);
+    let { value } = form;
+    this.emitForm.next(value);
   }
 
   resetForm(): void {

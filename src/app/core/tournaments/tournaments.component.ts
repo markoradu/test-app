@@ -15,7 +15,6 @@ export class TournamentsComponent implements OnInit {
   size = 3;
   displayFilters = DisplayFilters;
   layout = this.displayFilters.Basic;
-  searchName!: string;
 
   constructor(private tournamentService: TournamentService) {}
 
@@ -23,9 +22,10 @@ export class TournamentsComponent implements OnInit {
     this.getData();
   }
 
-  getData(): void {
+  getData(term?: any): void {
     const filters = { page: this.page - 1, size: this.size };
-    this.tournaments$ = this.tournamentService.getTournaments(filters).pipe(
+    let search = { ...term, ...filters };
+    this.tournaments$ = this.tournamentService.getTournaments(search).pipe(
       map((tournaments: any) => {
         return {
           items: tournaments.body,
@@ -45,6 +45,6 @@ export class TournamentsComponent implements OnInit {
   }
 
   collectForm(form: any) {
-    this.searchName = form;
+    this.getData(form);
   }
 }
