@@ -40,11 +40,15 @@ export class TournamentsComponent implements OnInit {
     this.getData();
   }
 
-  changeLayout($event: any) {
+  changeLayout($event: any): void {
     this.layout = $event;
   }
 
-  collectForm(form: any) {
+  collectForm(form: any): void {
     this.getData(form);
+  }
+
+  reset() {
+    this.getData();
   }
 }

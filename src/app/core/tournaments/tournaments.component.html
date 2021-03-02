@@ -8,11 +8,12 @@
     class="tournaments-container"
     *ngIf="tournaments$ | async as tournaments"
   >
-    <ng-container>
-      <div class="filters-wrapper">
-        <app-tournaments-filters (emitForm)="collectForm($event)"></app-tournaments-filters>
-      </div>
-    </ng-container>
+    <div class="filters-wrapper">
+      <app-tournaments-filters
+        (emitForm)="collectForm($event)"
+        (resetFilters)="reset()"
+      ></app-tournaments-filters>
+    </div>
     <div class="item-wrapper">
       <div
         *ngFor="

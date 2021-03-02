@@ -14,17 +14,18 @@ export class TournamentsFiltersComponent implements OnInit {
   faSearch = faSearch;
   searchByName$: Subject<any> = new Subject<string>();
   @Output() emitForm = new EventEmitter();
+  @Output() resetFilters = new EventEmitter();
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.initForm();
-    this.searchByName$.pipe(debounceTime(300)).subscribe((name) => {
+    this.searchByName$.pipe(debounceTime(400)).subscribe((name) => {
       this.submitForm(this.tournamentFinderForm);
     });
+    this.initForm();
   }
 
-  initForm() {
+  initForm(): void {
     this.tournamentFinderForm = this.fb.group({
       'name.contains': [''],
     });
@@ -37,5 +38,6 @@ export class TournamentsFiltersComponent implements OnInit {
 
   resetForm(): void {
     this.initForm();
+    this.resetFilters.emit();
   }
 }
