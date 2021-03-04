@@ -1,6 +1,5 @@
 <div class="filters-container">
-  <div class="search-container">
-    <form [formGroup]="tournamentFinderForm">
+    <form [formGroup]="tournamentFinderForm" *ngIf="tournamentFinderForm">
       <div class="search-bar">
         <input
           type="text"
@@ -10,7 +9,51 @@
         />
         <fa-icon class="fas fa-search" [icon]="faSearch"></fa-icon>
       </div>
-      <button class="button-accent" (click)="resetForm()">Clear all</button>
+      <button type="button" (click)="resetForm()">Clear all</button>
+      <div
+        ngbDropdown
+        #gamesDrop="ngbDropdown"
+        [autoClose]="'outside'"
+        class="dropdown-black"
+      >
+        <button id="games" ngbDropdownToggle>
+          <span>Games</span>
+          <fa-icon
+            class="games-dropdown"
+            [icon]="faMinus"
+            *ngIf="gamesDrop.isOpen() == true; else opened"
+          ></fa-icon>
+          <ng-template #opened>
+            <fa-icon class="games-dropdown" [icon]="faPlus"></fa-icon>
+          </ng-template>
+        </button>
+
+        <div ngbDropdownMenu aria-labelledby="games" class="games-dropdown">
+          <ng-container
+            formArrayName="gameId.in"
+            *ngIf="gameId_in?.controls.length"
+          >
+            <ng-container
+              *ngFor="
+                let game of gameId_in?.controls | slice: 0:8;
+                let i = index
+              "
+            >
+              <label
+                class="checkbox-wraper"
+                [formGroupName]="i"
+              >
+                {{ game.controls.name.value }}
+                <input
+                  type="checkbox"
+                  formControlName="checked"
+                  (change)="submitForm(tournamentFinderForm)"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
     </form>
-  </div>
 </div>
