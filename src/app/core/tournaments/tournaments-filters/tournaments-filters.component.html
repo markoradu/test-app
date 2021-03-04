@@ -1,15 +1,27 @@
 <div class="filters-container">
-    <form [formGroup]="tournamentFinderForm" *ngIf="tournamentFinderForm">
-      <div class="search-bar">
-        <input
-          type="text"
-          placeholder="Browse by tournament name"
-          formControlName="name.contains"
-          (keyup)="searchByName$.next($any($event.target).value)"
-        />
-        <fa-icon class="fas fa-search" [icon]="faSearch"></fa-icon>
-      </div>
-      <button type="button" (click)="resetForm()">Clear all</button>
+  <div class="title-container">
+    <h1>Filters</h1>
+  </div>
+  <form
+    class="form-container"
+    [formGroup]="tournamentFinderForm"
+    *ngIf="tournamentFinderForm"
+  >
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Browse by tournament name"
+        formControlName="name.contains"
+        (keyup)="searchByName$.next($any($event.target).value)"
+      />
+      <fa-icon class="fas fa-search" [icon]="faSearch"></fa-icon>
+    </div>
+    <div class="button-wrapper">
+      <button class="button-accent" type="button" (click)="resetForm()">
+        Clear all
+      </button>
+    </div>
+    <div class="dropdowns">
       <div
         ngbDropdown
         #gamesDrop="ngbDropdown"
@@ -39,21 +51,21 @@
                 let i = index
               "
             >
-              <label
-                class="checkbox-wraper"
-                [formGroupName]="i"
-              >
-                {{ game.controls.name.value }}
-                <input
-                  type="checkbox"
-                  formControlName="checked"
-                  (change)="submitForm(tournamentFinderForm)"
-                />
-                <span class="checkmark"></span>
+              <label class="checkbox-wraper" [formGroupName]="i">
+                <span>{{ game.controls.name.value }}</span>
+                <div>
+                  <input
+                    type="checkbox"
+                    formControlName="checked"
+                    (change)="submitForm(tournamentFinderForm)"
+                  />
+                  <span class="checkmark"></span>
+                </div>
               </label>
             </ng-container>
           </ng-container>
         </div>
       </div>
-    </form>
+    </div>
+  </form>
 </div>

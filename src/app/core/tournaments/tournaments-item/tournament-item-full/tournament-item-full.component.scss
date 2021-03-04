@@ -9,7 +9,7 @@
   background-color: #f6f6f6;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
-  width: 100%;
+  max-width: 100%;
   font-family: "Montserrat", sans-serif;
 
   .basic {
@@ -51,7 +51,6 @@
   }
 
   .text {
-
     span {
       color: orange;
       font-weight: bold;

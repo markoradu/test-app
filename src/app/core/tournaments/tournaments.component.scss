@@ -1,62 +1,29 @@
-.container {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  max-width: 100%;
-
-  .controls-wrapper {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border-radius: 10px;
-    box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
-    background-color: #f6f6f6;
-    margin-left: 0.5rem;
-    width: 100%;
-
-    pagination-controls {
-      margin-top: 10px;
-      text-align: center;
-    }
-  }
-}
-
 .filters-wrapper {
   grid-area: filters;
 }
 .navigation-wrapper {
   grid-area: navigation;
 }
-.item-wrapper {
+.tournaments-container {
   grid-area: items;
 }
 
-.tournaments-container {
+.content-container {
   height: 100%;
-  margin-right: 1rem;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 
   @media only screen and (max-width: 800px) {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: 1rem;
   }
+
   display: grid;
   grid-template-areas:
     "filters navigation"
     "filters items";
   grid-gap: 1rem;
-
-  .filters-wrapper {
-    text-align: center;
-  }
-  .navigation-wrapper {
-    text-align: center;
-  }
-  .item-wrapper {
-    text-align: center;
-    width: 100%;
-  }
 }

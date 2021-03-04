@@ -1,20 +1,19 @@
-<div class="container">
+<div class="content-container">
   <div class="navigation-wrapper">
     <app-tournaments-navigation
       (toggleLayout)="changeLayout($event)"
     ></app-tournaments-navigation>
   </div>
+  <div class="filters-wrapper">
+    <app-tournaments-filters
+      (emitForm)="collectForm($event)"
+      (resetFilters)="reset()"
+    ></app-tournaments-filters>
+  </div>
   <div
     class="tournaments-container"
     *ngIf="tournaments$ | async as tournaments"
   >
-    <div class="filters-wrapper">
-      <app-tournaments-filters
-        (emitForm)="collectForm($event)"
-        (resetFilters)="reset()"
-      ></app-tournaments-filters>
-    </div>
-    <div class="item-wrapper">
       <div
         *ngFor="
           let item of tournaments.items
@@ -43,6 +42,5 @@
           (pageChange)="handlePageChange($event)"
         ></pagination-controls>
       </div>
-    </div>
   </div>
 </div>
