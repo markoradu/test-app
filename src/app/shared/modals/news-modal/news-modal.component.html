@@ -1,5 +1,25 @@
-<div class="container">
-  <h1>{{news.title}}</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, fugit.</p>
-  <button (click)="activeModal.close('Close click')">Close</button>
+<div class="modal-container">
+  <div class="image-container">
+    <img
+      src="../../../../assets/news/news-no-image.jpg"
+      width="450"
+      height="300"
+      alt="news img"
+    />
+  </div>
+  <div class="title-container">
+    <h1 class="title">
+      {{ news?.title }}
+    </h1>
+  </div>
+  <div class="author-container">
+    <span>By: {{ news?.author }}</span
+    ><span
+      ><span>{{ news?.time | date }}</span></span
+    ><span>Categories: {{ news?.games[0]?.name }}</span>
+  </div>
+  <div class="text-container" [innerHTML]="news?.text"></div>
+  <div class="button-wrapper">
+    <button (click)="activeModal.close('Close click')">Close</button>
+  </div>
 </div>

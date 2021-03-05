@@ -1,51 +1,8 @@
 .item-container {
-  height: 100%;
-  margin-top: 1rem;
-  border-radius: 1rem;
-  padding: 1rem;
-  border: 1px solid lightgray;
-
-  .title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-    border: 1px solid orange;
-    border-radius: 1rem;
-
-    .title {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 2rem;
-      margin: 0;
-    }
-  }
-
   .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .image {
-      border-radius: 1rem;
+    img {
       max-width: 100%;
       height: auto;
-    }
-  }
-
-  .text-container {
-    margin-top: 2rem;
-    font-family: Verdana, Tahoma, sans-serif;
-    font-style: italic;
-    font-size: 1rem;
-  }
-
-  .button-wrapper {
-    .button {
-      background-color: orange;
-      border-radius: 5px;
-      color: white;
-      padding: 5px;
-      width: 15rem;
     }
   }
 }

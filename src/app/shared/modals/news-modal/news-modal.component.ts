@@ -9,8 +9,7 @@ import { News } from '../../interfaces/news.model';
 })
 export class NewsModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal) {}
- @Input() news!: any
+  @Input() news!: any;
 
   ngOnInit(): void {}
-
 }

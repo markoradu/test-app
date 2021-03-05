@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import { News } from 'src/app/shared/interfaces/news.model';
 
 
@@ -8,12 +9,14 @@ import { News } from 'src/app/shared/interfaces/news.model';
   styleUrls: ['./news-item.component.scss'],
 })
 export class NewsItemComponent implements OnInit {
-  @Input() data!: News;
+  @Input() data!: any;
   @Output() onClick = new EventEmitter();
+  faAngleDoubleRight = faAngleDoubleRight;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   click() {
     this.onClick.emit(this.data);

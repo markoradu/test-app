@@ -1,23 +1,27 @@
 <div class="item-container">
+  <div class="image-container">
+    <img
+      src="../../../../assets/news/news-no-image.jpg"
+      width="330"
+      height="200"
+      alt="news img"
+    />
+  </div>
+  <div class="date-container">
+    <span>{{ data.time | date }}</span> <img src="{{ data?.games[0]?.logo }}" width="50" height="50" alt="game logo" />
+  </div>
   <div class="title-container">
     <h1 class="title">
       {{ data.title }}
     </h1>
   </div>
-  <div class="image-container">
-    <img
-      class="image"
-      src="../../../../assets/img/news-no-image.jpg"
-      alt="game picture"
-    />
-  </div>
-  <div class="text-container">
-    <P
-      >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis,
-      quidem.</P
-    >
-  </div>
+  <div class="text-container" [innerHTML]="data.text"></div>
   <div class="button-wrapper">
-    <button class="button" (click)="click()">Open Modal</button>
+    <button class="button" (click)="click()">
+      Read more<fa-icon
+        [icon]="faAngleDoubleRight"
+        class="fas fa-angle-double-right"
+      ></fa-icon>
+    </button>
   </div>
 </div>
