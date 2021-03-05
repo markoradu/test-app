@@ -1,11 +1,14 @@
-<div class="news-container" *ngIf="news$ | async as news">
-  <ng-container>
+<div class="content-container">
+  <div class="filter-wrapper">
+    <p>filters</p>
+  </div>
+  <div class="news-container" *ngIf="news$ | async as news">
     <div
-      class="items-container"
       *ngFor="
         let item of news.items
           | paginate
             : {
+                id: 'news-pagination',
                 itemsPerPage: size,
                 currentPage: page,
                 totalItems: news.totalAmountOfItems
@@ -17,9 +20,10 @@
         (onClick)="openModal($event)"
       ></app-news-item>
     </div>
-  </ng-container>
+  </div>
   <div class="controls-container">
     <pagination-controls
+      id="news-pagination"
       previousLabel="Prev"
       nextLabel="Next"
       [responsive]="true"

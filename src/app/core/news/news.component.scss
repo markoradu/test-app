@@ -1,25 +1,37 @@
-.news-container {
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+.content-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  font-family: "Montserrat", sans-serif;
 
-  @media screen and (min-width: 600px) {
-    height: 100%;
-    display: grid;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    padding: 1rem;
-    grid-template-columns: 50% 50%;
+  .filter-wrapper {
+
   }
-  @media screen and (min-width: 1100px) {
-    height: 100%;
-    display: grid;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    padding: 1rem;
-    grid-template-columns: 33% 33% 33%;
+
+  .news-container {
+    @media screen and (min-width: 600px) {
+      height: 100%;
+      display: grid;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      padding: 1rem;
+      grid-template-columns: 50% 50%;
+      gap: 1rem;
+    }
+    @media screen and (min-width: 1100px) {
+      height: 100%;
+      display: grid;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      padding: 1rem;
+      grid-template-columns: 33% 33% 33%;
+      gap: 1rem;
+    }
+  }
+  .controls-container {
+
   }
 }
