@@ -13,6 +13,7 @@
     flex-direction: column;
     .input-label {
       font-size: 1.5rem;
+      margin-top: 1rem;
     }
     .input-field {
       border-top: none;
@@ -34,11 +35,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 1rem;
+
 
     .input-checkbox {
       zoom: 1.5;
-      margin-right: 0.5rem;
+      margin-left: 0.5rem;
       &:checked {
         box-shadow: none;
         background: white;

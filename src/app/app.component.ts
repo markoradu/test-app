@@ -9,13 +9,13 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private auth: AuthService, private store: Store) {}
+  constructor(private authService: AuthService, private store: Store) {}
 
   ngOnInit() {
     const token = localStorage.getItem('token');
 
     if (token) {
-      this.auth.getData().subscribe((userData: IAccount) => {
+      this.authService.getData().subscribe((userData: IAccount) => {
         this.store.dispatch(new AUTH.Authenticate(userData));
       });
     }

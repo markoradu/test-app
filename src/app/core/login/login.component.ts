@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private auth: AuthService,
+    private authService: AuthService,
     private store: Store<fromRoot.State>
   ) {}
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         Validators.compose([Validators.required, Validators.email]),
       ],
       password: ['', Validators.required],
-      rememberMe: [false, Validators.requiredTrue],
+      rememberMe: [false],
     });
 
     this.loginForm.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
@@ -48,11 +48,24 @@ export class LoginComponent implements OnInit {
 
   submitForm(value: ILoginRequest): void {
     this.errorMessage = '';
-    if (value) {
-      this.auth.login(value).subscribe(
+    if (value && value.rememberMe) {
+      this.authService.login(value).subscribe(
         (response: ILoginResponse) => {
           localStorage.setItem('token', response.id_token);
-          this.auth.getData().subscribe((userData: IAccount) => {
+          this.authService.getData().subscribe((userData: IAccount) => {
+            this.store.dispatch(new AUTH.Authenticate(userData));
+          });
+        },
+        (error: HttpErrorResponse) => {
+          this.errorMessage = error.error.detail;
+        }
+      );
+    }
+    if (value && !value.rememberMe) {
+      this.authService.login(value).subscribe(
+        (response: ILoginResponse) => {
+          sessionStorage.setItem('token', response.id_token);
+          this.authService.getData().subscribe((userData: IAccount) => {
             this.store.dispatch(new AUTH.Authenticate(userData));
           });
         },

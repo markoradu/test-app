@@ -23,7 +23,7 @@ export class AuthService {
 export interface ILoginRequest {
   username: string;
   password: string;
-  rememberMe: boolean;
+  rememberMe?: boolean;
 }
 
 export interface ILoginResponse {
