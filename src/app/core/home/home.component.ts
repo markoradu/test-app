@@ -12,6 +12,7 @@ import * as AUTH from '../auth/auth.actions';
 })
 export class HomeComponent implements OnInit {
   isAuthenticated$: Observable<boolean> | undefined;
+  currentUser$: Observable<any> | undefined;
 
   constructor(private store: Store<fromRoot.State>, private router: Router) {}
 
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   getUserData() {
     this.isAuthenticated$ = this.store.select(fromRoot.getIsAuthenticated);
+    this.currentUser$ = this.store.select(fromRoot.getCurrentUser);
   }
 
   logout(): void {

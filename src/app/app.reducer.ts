@@ -1,5 +1,4 @@
 import {
-  Action,
   ActionReducerMap,
   createFeatureSelector,
   createSelector,
