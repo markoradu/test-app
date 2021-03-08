@@ -11,9 +11,13 @@
     width: 100%;
     margin: 1rem;
     padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
+    background-color: #f6f6f6;
   }
 
   .news-container {
+    width: 100%;
     @media screen and (min-width: 600px) {
       height: 100%;
       display: grid;
@@ -34,12 +38,17 @@
     }
   }
   .controls-container {
-    max-width: 100%;
+    display: flex;
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     margin-bottom: 1rem;
-    padding: 0.3rem;
+    padding: 1rem;
     background-color: #f6f6f6;
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
+    margin: 1rem;
     border-radius: 10px;
     box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
   }
