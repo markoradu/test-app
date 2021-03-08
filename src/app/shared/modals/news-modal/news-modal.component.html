@@ -13,9 +13,9 @@
     </h1>
   </div>
   <div class="author-container">
-    <span>By: {{ news?.author }}</span
+    <span><fa-icon [icon]="faUser" class="fas fa-user"></fa-icon> By: {{ news?.author }}</span
     ><span
-      ><span>{{ news?.time | date }}</span></span
+      ><span><fa-icon [icon]='faCalendarAlt' class="far fa-calendar mr-3"></fa-icon>{{ news?.time | date }}</span></span
     ><span>Categories: {{ news?.games[0]?.name }}</span>
   </div>
   <div class="text-container" [innerHTML]="news?.text"></div>

@@ -8,7 +8,7 @@
     />
   </div>
   <div class="date-container">
-    <span>{{ data.time | date }}</span> <img src="{{ data?.games[0]?.logo }}" width="50" height="50" alt="game logo" />
+    <span><fa-icon [icon]='faCalendarAlt' class="far fa-calendar mr-3"></fa-icon>{{ data.time | date }}</span> <img src="{{ data?.games[0]?.logo }}" width="50" height="50" alt="game logo" />
   </div>
   <div class="title-container">
     <h1 class="title">
@@ -18,7 +18,7 @@
   <div class="text-container" [innerHTML]="data.text"></div>
   <div class="button-wrapper">
     <button class="button" (click)="click()">
-      Read more<fa-icon
+      Read more <fa-icon
         [icon]="faAngleDoubleRight"
         class="fas fa-angle-double-right"
       ></fa-icon>

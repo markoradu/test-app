@@ -1,11 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 .modal-container {
+  width: 100%;
+  height: 100%;
   font-family: "Montserrat", sans-serif;
   padding: 1rem;
+  background-color: #f6f6f6;
   .image-container {
     img {
       max-width: 100%;
       height: auto;
+    }
+  }
+
+  .title-container {
+    .title {
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .author-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    span {
+      color: #919191;
+      font-size: 1rem;
+    }
+  }
+
+  .text-container {
+    font-size: 1rem;
+    height: 10rem;
+    padding: 1rem;
+  }
+
+  .button-wrapper {
+    button {
+      border: none;
+      color: #ffab2e;
+      background-color: #f6f6f6;
+      font-size: 1rem;
     }
   }
 }
