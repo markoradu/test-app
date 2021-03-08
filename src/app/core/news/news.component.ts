@@ -1,7 +1,4 @@
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -27,9 +24,10 @@ export class NewsComponent implements OnInit {
     this.getData();
   }
 
-  getData(): void {
+  getData(game?: any): void {
     const filters = { page: this.page - 1, size: this.size };
-    this.news$ = this.newsService.getNews(filters).pipe(
+    let filter = { ...game, ...filters };
+    this.news$ = this.newsService.getNews(filter).pipe(
       map((news) => {
         return {
           items: news.body,
@@ -53,5 +51,9 @@ export class NewsComponent implements OnInit {
   openModal($event: any) {
     const modalRef = this.modalService.open(NewsModalComponent);
     modalRef.componentInstance.news = $event;
+  }
+
+  collectForm(form: any): void {
+    this.getData(form);
   }
 }

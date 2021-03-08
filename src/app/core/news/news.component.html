@@ -1,6 +1,6 @@
 <div class="content-container">
   <div class="filter-wrapper">
-    <p>filters</p>
+    <app-news-filter (emitForm)="collectForm($event)"></app-news-filter>
   </div>
   <div class="news-container" *ngIf="news$ | async as news">
     <div

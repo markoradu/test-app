@@ -22,6 +22,7 @@ import { TournamentsItemComponent } from './core/tournaments/tournaments-item/to
 import { TournamentsNavigationComponent } from './core/tournaments/tournaments-navigation/tournaments-navigation.component';
 import { TournamentItemFullComponent } from './core/tournaments/tournaments-item/tournament-item-full/tournament-item-full.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NewsFilterComponent } from './core/news/news-filter/news-filter.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TournamentsItemComponent,
     TournamentsNavigationComponent,
     TournamentItemFullComponent,
+    NewsFilterComponent,
   ],
   imports: [
     BrowserModule,

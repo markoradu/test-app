@@ -1,26 +1,9 @@
-<div class="filters-container">
-  <div class="title-container">
-    <h1>Filters</h1>
-  </div>
+<div class="filter-container">
   <form
     class="form-container"
-    [formGroup]="tournamentFinderForm"
-    *ngIf="tournamentFinderForm"
+    [formGroup]="newsFinderForm"
+    *ngIf="newsFinderForm"
   >
-    <div class="search-bar">
-      <input
-        type="text"
-        placeholder="Browse by tournament name"
-        formControlName="name.contains"
-        (keyup)="searchByName$.next($any($event.target).value)"
-      />
-      <fa-icon class="fas fa-search" [icon]="faSearch"></fa-icon>
-    </div>
-    <div class="button-wrapper">
-      <button class="button-accent" type="button" (click)="resetForm()">
-        Clear all
-      </button>
-    </div>
     <div class="dropdowns">
       <div
         ngbDropdown
@@ -42,12 +25,12 @@
 
         <div ngbDropdownMenu aria-labelledby="games" class="games-dropdown">
           <ng-container
-            formArrayName="gameId.in"
-            *ngIf="gameId_in?.controls.length"
+            formArrayName="gamesId.in"
+            *ngIf="gamesId_in?.controls.length"
           >
             <ng-container
               *ngFor="
-                let game of gameId_in?.controls | slice: 0:8;
+                let game of gamesId_in?.controls | slice: 0:8;
                 let i = index
               "
             >
@@ -57,7 +40,7 @@
                   <input
                     type="checkbox"
                     formControlName="checked"
-                    (change)="submitForm(tournamentFinderForm)"
+                    (change)="submitForm(newsFinderForm)"
                   />
                 </div>
               </label>
