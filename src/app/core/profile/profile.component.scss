@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+.profile-cover {
+  width: 100%;
+  display: flex;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+  justify-content: space-between;
+  background-color: black;
+  font-family: "Montserrat", sans-serif;
+
+  .profile-wrapper {
+    padding: 3rem 1rem;
+    align-self: center;
+    justify-self: center;
+    .user-img {
+      img {
+        object-fit: cover;
+        border: 1px solid #ffab2e;
+        border-radius: 2rem;
+      }
+    }
+    .upload-wrapper {
+      fa-icon {
+        font-size: 1rem;
+        color: white;
+      }
+    }
+    .user {
+      h4 {
+        color: #ffab2e;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      h5 {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .img-wrapper {
+    margin: 0 auto;
+    height: fit-content;
+    overflow: hidden;
+    position: relative;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    @media screen and (max-width: 800px) {
+      clip-path: none;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .view-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    padding-right: 0.5rem;
+
+    button {
+      border: solid 1px #ffab2e;
+      background-color: rgba(255, 171, 46, 0.1);
+      color: #ffab2e;
+      height: fit-content;
+      padding: 1px 6px;
+      border-radius: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+}

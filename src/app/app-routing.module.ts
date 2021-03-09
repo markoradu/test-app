@@ -4,6 +4,7 @@ import { AuthGuard } from './core/auth/auth.guard';
 import { HomeComponent } from './core/home/home.component';
 import { LoginComponent } from './core/login/login.component';
 import { NewsComponent } from './core/news/news.component';
+import { ProfileComponent } from './core/profile/profile.component';
 import { TournamentsComponent } from './core/tournaments/tournaments.component';
 
 const routes: Routes = [
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'tournaments',
     component: TournamentsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
     canActivate: [AuthGuard],
   },
 ];

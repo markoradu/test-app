@@ -19,7 +19,8 @@
             width="37"
           />
           <div ngbDropdownMenu aria-labelledby="userDropdown">
-            <button class="dropdown-item" (click)="logout()">Logout</button>
+            <a class="dropdown-item" routerLink="profile">Profile</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
           </div>
         </div>
       </ng-container>

@@ -23,6 +23,7 @@ import { TournamentsNavigationComponent } from './core/tournaments/tournaments-n
 import { TournamentItemFullComponent } from './core/tournaments/tournaments-item/tournament-item-full/tournament-item-full.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewsFilterComponent } from './core/news/news-filter/news-filter.component';
+import { ProfileComponent } from './core/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NewsFilterComponent } from './core/news/news-filter/news-filter.compone
     TournamentsNavigationComponent,
     TournamentItemFullComponent,
     NewsFilterComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

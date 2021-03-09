@@ -1,10 +1,12 @@
 .login-container {
+  max-width: 50rem;
   padding: 3rem 5rem;
   font-family: Arial, Helvetica, sans-serif;
   border: 0.3rem solid black;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   .title {
     font-size: 2.5rem;
   }

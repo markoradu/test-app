@@ -1,0 +1,47 @@
+<div class="profile-cover">
+  <div class="profile-wrapper">
+    <div class="user-img">
+      <div class="img-container">
+        <img
+          [src]="currentProfileImage || profile?.images?.original || '/assets/profile/profile_default.jpg'"
+          #imgProfile
+          alt="avatar"
+          width="120"
+          height="120"
+        />
+      </div>
+      <div class="upload-wrapper">
+        <label for="profile-file-upload">
+          <fa-icon [icon]="faUpload" class="far fa-upload"></fa-icon>
+          <input
+            #coverInput
+            type="file"
+            id="profile-file-upload"
+            [hidden]="true"
+            (input)="selectProfileImage($event)"
+          />
+        </label>
+      </div>
+    </div>
+    <div class="user">
+      <h4>{{ profile?.login }}</h4>
+      <h5>{{ profile?.firstName }} {{ profile?.lastName }}</h5>
+    </div>
+  </div>
+  <div class="img-wrapper">
+    <img
+      src="/assets/profile/profile_cover_default.jpg"
+      alt="avatar"
+      width="700"
+      height="300"
+    />
+  </div>
+  <div class="view-wrapper">
+    <button class="button button-accent-transparent">
+      <fa-icon [icon]="faPen"></fa-icon>
+    </button>
+    <button class="button button-accent-transparent" routerLink="/">
+      <fa-icon [icon]="faEye" class="far fa-eye"></fa-icon>
+    </button>
+  </div>
+</div>

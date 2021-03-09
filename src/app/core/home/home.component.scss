@@ -33,10 +33,22 @@
       }
       .userDropdown {
         width: 100%;
-        padding: 1rem;
         margin: 1rem;
         &::after {
           content: none;
+        }
+
+        .dropdown-menu.show {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background: #f6f6f6;
+          color: #202229;
+           a {
+             text-decoration: none;
+             color: black;
+           }
         }
       }
     }

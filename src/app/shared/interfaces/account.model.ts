@@ -26,4 +26,5 @@ export interface IAccount {
   imageUrl?: string;
   locked?: boolean;
   friendStatus?: string;
+  images?: any;
 }
