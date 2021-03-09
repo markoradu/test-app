@@ -6,7 +6,7 @@
     <div *ngIf="currentUser$ | async as currentUser" class="user">
       <ng-container *ngIf="currentUser$ | async; else nouser">
         <div ngbDropdown class="userDropdown" >
-          <span ngbDropdownToggle>{{ currentUser?.login }}</span>
+          <span>{{ currentUser?.login }}</span>
           <img ngbDropdownToggle
             [src]="
               currentUser?.images?.thumb ||
