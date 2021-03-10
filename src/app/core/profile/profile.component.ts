@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { faEye, faPen, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { IAccount } from 'src/app/shared/interfaces/account.model';
-import { ProfileService } from '../profile.service';
+import { ProfileService } from './profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
       : this.profile?.images?.original;
     this.originalProfileImage = this.profile?.images?.medium;
 
-    this.profileService.getAccount().subscribe((result) => {
+    this.profileService.getAccount().subscribe((result: any) => {
       this.profile = result;
     });
   }
