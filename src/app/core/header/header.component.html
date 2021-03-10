@@ -1,1 +1,50 @@
-<p>header works!</p>
+<div class="header-container">
+    <div class="title">
+      <h1>test app</h1>
+    </div>
+    <div class="nav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/tournaments"
+          >
+            <fa-icon [icon]="faTrophy"></fa-icon>&nbsp;&nbsp;Tournaments
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/news">
+            <fa-icon [icon]="faNewspaper"></fa-icon>&nbsp;&nbsp;News
+          </a>
+        </li>
+      </ul>
+    </div>
+  <div *ngIf="currentUser$ | async as currentUser" class="user">
+    <ng-container *ngIf="currentUser$ | async; else nouser">
+      <div ngbDropdown class="userDropdown">
+        <span>{{ currentUser?.login }}</span>
+        <img
+          ngbDropdownToggle
+          [src]="
+            currentUser?.images?.original ||
+            'assets/profile/profile_default.jpg'
+          "
+          class="profile-image"
+          [alt]="'Profile Image'"
+          height="37"
+          width="37"
+        />
+        <div ngbDropdownMenu aria-labelledby="userDropdown">
+          <a
+            class="dropdown-item"
+            routerLink="profile"
+            >Profile</a
+          >
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #nouser> <h2>Please login</h2> </ng-template>
+  </div>
+</div>
