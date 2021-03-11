@@ -12,7 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NewsComponent } from './core/news/news.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './app.reducer';
-import { HomeComponent } from './core/home/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewsItemComponent } from './core/news/news-item/news-item.component';
 import { NewsModalComponent } from './shared/modals/news-modal/news-modal.component';
@@ -24,13 +23,14 @@ import { TournamentItemFullComponent } from './core/tournaments/tournaments-item
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewsFilterComponent } from './core/news/news-filter/news-filter.component';
 import { ProfileComponent } from './core/profile/profile.component';
+import { HeaderComponent } from './core/header/header.component';
+import { HomeComponent } from './core/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NewsComponent,
-    HomeComponent,
     NewsItemComponent,
     NewsModalComponent,
     TournamentsComponent,
@@ -40,6 +40,8 @@ import { ProfileComponent } from './core/profile/profile.component';
     TournamentItemFullComponent,
     NewsFilterComponent,
     ProfileComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

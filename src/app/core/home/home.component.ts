@@ -1,32 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import * as fromRoot from '../../app.reducer';
-import * as AUTH from '../auth/auth.actions';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  isAuthenticated$: Observable<boolean> | undefined;
-  currentUser$: Observable<any> | undefined;
 
-  constructor(private store: Store<fromRoot.State>, private router: Router) {}
+  constructor() { }
 
   ngOnInit(): void {
-    this.getUserData();
   }
 
-  getUserData() {
-    this.isAuthenticated$ = this.store.select(fromRoot.getIsAuthenticated);
-    this.currentUser$ = this.store.select(fromRoot.getCurrentUser);
-  }
-
-  logout(): void {
-    this.store.dispatch(new AUTH.Unauthenticate());
-    this.router.navigate(['']);
-  }
 }

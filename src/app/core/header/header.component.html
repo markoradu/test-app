@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="title">
+    <h1>test app</h1>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>
+        <a routerLink="news"><fa-icon [icon]="faNewspaper"></fa-icon>&nbsp;&nbsp;News</a>
+      </li>
+      <li>
+        <a routerLink="tournaments"><fa-icon [icon]="faTrophy"></fa-icon>&nbsp;&nbsp;Tournaments</a>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="currentUser$ | async as currentUser" class="user">
+      <div ngbDropdown class="userDropdown" >
+        <span>{{ currentUser?.login }}</span>
+        <img ngbDropdownToggle
+          [src]="
+            currentUser?.images?.thumb ||
+            currentUser?.images?.original ||
+            'assets/profile/profile_default.jpg'
+          "
+          class="profile-image"
+          [alt]="'Profile Image'"
+          height="37"
+          width="37"
+        />
+        <div ngbDropdownMenu aria-labelledby="userDropdown">
+          <a class="dropdown-item" routerLink="profile"><fa-icon [icon]="faUser"></fa-icon>&nbsp;&nbsp;Profile</a>
+          <a class="dropdown-item" (click)="logout()"><fa-icon [icon]="faLogout"></fa-icon>&nbsp;&nbsp;Logout</a>
+        </div>
+      </div>
+  </div>
+</div>

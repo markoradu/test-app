@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="home-container">
+  <ng-container *ngIf="isAuthenticated$ | async; else notauth">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </ng-container>
+  <ng-template #notauth>
+    <app-login></app-login>
+  </ng-template>
+</div>
