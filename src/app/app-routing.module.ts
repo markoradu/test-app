@@ -10,24 +10,21 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-
-    children: [
-      {
-        path: 'news',
-        component: NewsComponent,
-        canActivate: [AuthGuard],
-      },
-      {
-        path: 'tournaments',
-        component: TournamentsComponent,
-        canActivate: [AuthGuard],
-      },
-      {
-        path: 'profile',
-        component: ProfileComponent,
-        canActivate: [AuthGuard],
-      },
-    ],
+  },
+  {
+    path: 'news',
+    component: NewsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'tournaments',
+    component: TournamentsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
 ];
 
