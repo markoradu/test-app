@@ -24,7 +24,6 @@ import { TournamentItemFullComponent } from './core/tournaments/tournaments-item
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewsFilterComponent } from './core/news/news-filter/news-filter.component';
 import { ProfileComponent } from './core/profile/profile.component';
-import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { HeaderComponent } from './core/header/header.component';
     TournamentItemFullComponent,
     NewsFilterComponent,
     ProfileComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
