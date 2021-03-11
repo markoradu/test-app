@@ -1,16 +1,18 @@
 <div class="header">
-  <div class="title">
-    <h1>test app</h1>
-  </div>
-  <div class="nav">
-    <ul>
-      <li>
-        <a routerLink="news"><fa-icon [icon]="faNewspaper"></fa-icon>&nbsp;&nbsp;News</a>
-      </li>
-      <li>
-        <a routerLink="tournaments"><fa-icon [icon]="faTrophy"></fa-icon>&nbsp;&nbsp;Tournaments</a>
-      </li>
-    </ul>
+  <div class="title-and-nav">
+    <div class="title">
+      <h1>test app</h1>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>
+          <a routerLink="news"><fa-icon [icon]="faNewspaper"></fa-icon>&nbsp;&nbsp;News</a>
+        </li>
+        <li>
+          <a routerLink="tournaments"><fa-icon [icon]="faTrophy"></fa-icon>&nbsp;&nbsp;Tournaments</a>
+        </li>
+      </ul>
+    </div>
   </div>
   <div *ngIf="currentUser$ | async as currentUser" class="user">
       <div ngbDropdown class="userDropdown" >
