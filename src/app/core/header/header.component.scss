@@ -1,12 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
+<<<<<<< HEAD
 .header {
+=======
+.header-container {
+>>>>>>> 2102932ed9b7773422f1e9495015dd550d4879ff
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 1rem;
   padding: 1rem;
+<<<<<<< HEAD
   font-family: "Montserrat", sans-serif;
+=======
+>>>>>>> 2102932ed9b7773422f1e9495015dd550d4879ff
 
   .title {
     h1 {
@@ -16,6 +23,7 @@
   }
 
   .nav {
+<<<<<<< HEAD
 
     ul {
       list-style: none;
@@ -30,6 +38,23 @@
         &:hover {
           color: orange;
         }
+=======
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      .nav-link {
+        color: black;
+        font-size: 1rem;
+>>>>>>> 2102932ed9b7773422f1e9495015dd550d4879ff
       }
     }
   }

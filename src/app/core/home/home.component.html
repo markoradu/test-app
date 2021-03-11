@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 <div class="home-wrapper">
   <h1>Welcome to the test app</h1>
   <p>This is a project to test angular features</p>
+=======
+<div class="home-container">
+  <ng-container *ngIf="isAuthenticated$ | async; else notauth">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </ng-container>
+  <ng-template #notauth>
+    <app-header></app-header>
+    <app-login></app-login>
+  </ng-template>
+>>>>>>> 2102932ed9b7773422f1e9495015dd550d4879ff
 </div>
