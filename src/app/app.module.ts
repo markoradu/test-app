@@ -25,6 +25,7 @@ import { NewsFilterComponent } from './core/news/news-filter/news-filter.compone
 import { ProfileComponent } from './core/profile/profile.component';
 import { HeaderComponent } from './core/header/header.component';
 import { HomeComponent } from './core/home/home.component';
+import { TfModalComponent } from './shared/modals/tf-modal/tf-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HomeComponent } from './core/home/home.component';
     NewsFilterComponent,
     ProfileComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TfModalComponent
   ],
   imports: [
     BrowserModule,

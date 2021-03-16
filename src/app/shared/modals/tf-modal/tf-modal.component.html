@@ -1,0 +1,145 @@
+<i class="fal fa-times" (click)="closeModal()"></i>
+<form [formGroup]="addPostForm" *ngIf="formInitiated" class="add-post-form">
+  <div
+    ngbDropdown
+    #gamesDrop="ngbDropdown"
+    [autoClose]="'outside'"
+    class="dropdown-black"
+    [ngClass]="{ required: !selectedGame }"
+  >
+    <button id="games" ngbDropdownToggle>
+      <span>{{ gameDropdownLabel }}</span>
+
+      <i [ngClass]="gamesDrop.isOpen() ? 'fas fa-minus' : 'fas fa-plus'"></i>
+    </button>
+
+    <div ngbDropdownMenu aria-labelledby="games" class="games-dropdown">
+      <ng-container formArrayName="gameId" *ngIf="gameId_in?.controls.length">
+        <ng-container
+          *ngFor="let game of gameId_in?.controls | slice: 0:8; let i = index"
+        >
+          <label
+            class="checkbox-wraper"
+            [formGroupName]="i"
+            [ngClass]="{
+              active: gameId_in.controls[i]?.controls?.checked?.value
+            }"
+          >
+            {{ game.controls.name.value }}
+            <input
+              type="checkbox"
+              formControlName="checked"
+              (change)="gameSelected(game.value)"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div
+    ngbDropdown
+    #rolesDrop="ngbDropdown"
+    [autoClose]="'outside'"
+    class="dropdown-black"
+    [ngClass]="{ required: !selectedRole && roleId_in?.controls.length > 0 }"
+  >
+    <button
+      id="roles"
+      ngbDropdownToggle
+      [disabled]="!selectedGame || filters['roles']?.length === 0"
+    >
+      <span>Roles</span>
+      <i [ngClass]="rolesDrop.isOpen() ? 'fas fa-minus' : 'fas fa-plus'"></i>
+    </button>
+
+    <div ngbDropdownMenu aria-labelledby="roles" class="games-dropdown">
+      <ng-container
+        formArrayName="gameRolesIds"
+        *ngIf="roleId_in?.controls.length"
+      >
+        <ng-container
+          *ngFor="let role of roleId_in?.controls | slice: 0:8; let i = index"
+        >
+          <label
+            class="checkbox-wraper"
+            [formGroupName]="i"
+            [ngClass]="{
+              active: roleId_in?.controls[i]?.controls?.checked?.value
+            }"
+          >
+            {{ role.controls.name.value }}
+            <input
+              type="checkbox"
+              formControlName="checked"
+              (change)="roleSelected(role.value)"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div
+    ngbDropdown
+    #ranksDrop="ngbDropdown"
+    [autoClose]="'outside'"
+    class="dropdown-black"
+    [ngClass]="{ required: !selectedRank && rankId_in?.controls.length > 0 }"
+  >
+    <button
+      id="ranks"
+      ngbDropdownToggle
+      [disabled]="!selectedGame || filters['ranks']?.length === 0"
+    >
+      <span>Ranks</span>
+      <i [ngClass]="ranksDrop.isOpen() ? 'fas fa-minus' : 'fas fa-plus'"></i>
+    </button>
+
+    <div ngbDropdownMenu aria-labelledby="ranks" class="games-dropdown">
+      <ng-container formArrayName="rankId" *ngIf="rankId_in?.controls.length">
+        <ng-container
+          *ngFor="let rank of rankId_in?.controls | slice: 0:8; let i = index"
+        >
+          <label
+            class="checkbox-wraper"
+            [formGroupName]="i"
+            [ngClass]="{
+              active: rankId_in.controls[i]?.controls?.checked?.value
+            }"
+          >
+            {{ rank.controls.name.value }}
+            <input
+              type="checkbox"
+              formControlName="checked"
+              (change)="rankSelected(rank.value)"
+            />
+            <span class="checkmark"></span>
+          </label>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- <div class="error" [hidden]="isFormValid">
+    <p>All required fields need to be filled</p>
+  </div> -->
+
+  <div class="form-action-buttons">
+    <button
+      type="submit"
+      class="button"
+      style="width: 49%"
+      (click)="submitForm(addPostForm)"
+      [disabled]="!isFormValid"
+      [ngClass]="{ disabled: !isFormValid }"
+    >
+      {{ editMode ? "Save post" : "Create post" }}
+    </button>
+    <button class="button" (click)="cancelHandler()" style="width: 49%">
+      Cancel
+    </button>
+  </div>
+</form>
