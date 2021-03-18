@@ -1,4 +1,3 @@
-<i class="fal fa-times" (click)="closeModal()"></i>
 <form [formGroup]="addPostForm" *ngIf="formInitiated" class="add-post-form">
   <div
     ngbDropdown
@@ -137,7 +136,7 @@
     >
       {{ editMode ? "Save post" : "Create post" }}
     </button>
-    <button class="button" (click)="cancelHandler()" style="width: 49%">
+    <button class="button" (click)="closeModal()" style="width: 49%">
       Cancel
     </button>
   </div>

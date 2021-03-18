@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { SuccessModalService } from 'src/app/shared/modals/success-modal/success-modal.service';
-import { ConfirmationModalService } from 'src/app/shared/modals/tf-modal/confirmation-modal.service';
+
 import { TfUserCreatePostModalService } from 'src/app/shared/modals/tf-modal/tf-user-create-post-modal.service';
-import { TfMyPostModalService } from 'src/app/shared/modals/tf-my-posts-modal/tf-my-post-modal.service';
+
 import { TeamFinderService } from './team-finder.service';
 
 @Component({
@@ -33,9 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private tfAddPostService: TfUserCreatePostModalService,
     private successModal: SuccessModalService,
-    private teamFinderService: TeamFinderService,
-    private tfMyPostsService: TfMyPostModalService,
-    private confirmationModal: ConfirmationModalService
+    private teamFinderService: TeamFinderService
   ) {}
 
   ngOnInit(): void {
@@ -99,7 +97,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.getTeamPosts();
       this.getPlayerPosts();
     }
-
   }
 
   getTeamPosts() {
@@ -134,95 +131,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.totalPostsNumber = +posts['headers'].get('X-Total-Count');
         this.isLoading = false;
       });
-  }
-
-  myPostsHandler() {
-    let successMessage: string;
-    this.tfMyPostsService.open({}).then(
-      (data: any) => {
-        if (data.action === 'delete') {
-          const confirmMessage = 'Are you sure you want to delete post?';
-          successMessage = 'Your post is deleted';
-          this.confirmationModal
-            .open({
-              message: confirmMessage,
-            })
-            .then((confirmed: any) => {
-              if (confirmed) {
-                this.teamFinderService
-                  .teamFinderDeletePost(data.id)
-                  .subscribe((deleted) => {
-                    this.successModal
-                      .open({
-                        text: successMessage,
-                      })
-                      .then(
-                        () => {
-                          this.getPosts();
-                        },
-                        () => {}
-                      );
-                  });
-              }
-            });
-        } else {
-          const editData = {
-            post: data.post,
-            edit: true,
-          };
-          if (data.post.finderType === 'User') {
-            this.tfAddPostService.open(editData).then(
-              (updateData) => {
-                if (updateData && updateData.update) {
-                  const updateSuccessMessage = 'Your post is updated';
-                  this.successModal
-                    .open({
-                      text: updateSuccessMessage,
-                    })
-                    .then(
-                      () => {
-                        this.getPosts();
-                      },
-                      () => {
-                        this.getPosts();
-                      }
-                    )
-                    .catch(() => {
-                      this.getPosts();
-                    });
-                }
-              },
-              () => {}
-            );
-          } else {
-            this.tfAddPostService.open(editData).then(
-              (updateData: any) => {
-                if (updateData && updateData.update) {
-                  const updateSuccessMessage = 'Your post is updated';
-                  this.successModal
-                    .open({
-                      text: updateSuccessMessage,
-                    })
-                    .then(
-                      () => {
-                        this.getPosts();
-                      },
-                      () => {
-                        this.getPosts();
-                      }
-                    )
-                    .catch(() => {
-                      this.getPosts();
-                    });
-                }
-              },
-              () => {}
-            );
-          }
-        }
-      },
-      () => {}
-    );
   }
 
   createUserPostHandler() {

@@ -11,17 +11,15 @@
   font-family: "Montserrat", sans-serif;
 
   .post-button {
+    background: #f6f6f6;
+    color: #202229;
     max-width: 100%;
     border-radius: 0.5rem;
-    background-color: #f6f6f6;
-    box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
-    font-size: 1.5rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
 
     fa-icon {
-      margin-left: 2rem;
+      margin-left: 3rem;
     }
   }
 }

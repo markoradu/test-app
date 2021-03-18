@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { NgbActiveModal, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription, forkJoin } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -13,6 +14,7 @@ import { TfUserCreatePostModalState } from './tf-user-create-post-modal.state';
   styleUrls: ['./tf-modal.component.scss'],
 })
 export class TfModalComponent implements OnInit {
+  faTimes = faTimes;
   addPostForm!: FormGroup;
   editMode: boolean = false;
   filters: any;
@@ -74,7 +76,7 @@ export class TfModalComponent implements OnInit {
     });
   }
 
-  private initForm(filters: any) {
+  private initForm(filters?: any) {
     this.addPostForm = this.fb.group({
       gameId: this.populateForm(filters[0], 'gameId'),
     });
@@ -302,9 +304,5 @@ export class TfModalComponent implements OnInit {
         checked: true,
       });
     this.gameSelected(game);
-  }
-
-  cancelHandler() {
-    this.editMode;
   }
 }
