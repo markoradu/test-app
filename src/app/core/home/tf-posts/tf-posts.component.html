@@ -13,19 +13,13 @@
     class="single-post"
   >
     <div class="avatar">
-      <img [src]="post.image || '/assets/profile/profile_default.jpeg'" />
+      <img [src]="post.image || 'assets/profile/profile_default.jpg'" width="80" height="80"/>
     </div>
     <div class="name-username">
-      <a class="fullName">{{ post.name }}</a>
-    </div>
-    <div class="name-username">
-      <div class="avatar">
-        <img [src]="post.image || '/assets/profile/profile_default.jpeg'" />
-      </div>
-      <a class="fullName">{{ post.name }}</a>
+      <p class="fullName">{{ post.name }}</p>
     </div>
     <div class="game">
-      <img [src]="post.gameImage" />
+      <img [src]="post.gameImage" width="50" height="50" />
       <p>{{ post.game }}</p>
     </div>
     <div class="role">
@@ -45,10 +39,6 @@
       <ng-template #noRank>
         <p class="rank-text">No rank specified</p>
       </ng-template>
-    </div>
-    <div class="rank">
-      <p class="rank-label">Languages</p>
-      <p class="rank-text">{{ post.languages | arrayToString }}</p>
     </div>
   </div>
 

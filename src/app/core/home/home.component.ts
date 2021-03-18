@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { SuccessModalService } from 'src/app/shared/modals/success-modal/success-modal.service';
 import { ConfirmationModalService } from 'src/app/shared/modals/tf-modal/confirmation-modal.service';
@@ -12,6 +13,8 @@ import { TeamFinderService } from './team-finder.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  faUsers = faUsers;
+
   private mainFilters: any;
   private advancedFilters: any;
   private mainFiltersLoaded: boolean = false;
