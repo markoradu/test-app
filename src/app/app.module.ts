@@ -26,6 +26,10 @@ import { ProfileComponent } from './core/profile/profile.component';
 import { HeaderComponent } from './core/header/header.component';
 import { HomeComponent } from './core/home/home.component';
 import { TfModalComponent } from './shared/modals/tf-modal/tf-modal.component';
+import { TfPostsComponent } from './core/home/tf-posts/tf-posts.component';
+import { ArrayToStringPipe } from './shared/pipes/arrayToString.pipe';
+import { SuccessModalComponent } from './shared/modals/success-modal/success-modal.component';
+import { TfMyPostsModalComponent } from './shared/modals/tf-my-posts-modal/tf-my-posts-modal.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { TfModalComponent } from './shared/modals/tf-modal/tf-modal.component';
     ProfileComponent,
     HeaderComponent,
     HomeComponent,
-    TfModalComponent
+    TfModalComponent,
+    TfPostsComponent,
+    ArrayToStringPipe,
+    SuccessModalComponent,
+    TfMyPostsModalComponent,
   ],
   imports: [
     BrowserModule,

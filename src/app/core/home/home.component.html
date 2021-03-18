@@ -1,6 +1,17 @@
 <div class="home-wrapper">
-  <button class="post-button" (click)="createUserPostHandler()">
-    <span> Create a post for teams to find you </span>
-    <i class="fas fa-users"></i>
-  </button>
+  <div class="action-buttons">
+    <button class="post-button" (click)="createUserPostHandler()">
+      <span>
+       Create a post for teams to find you
+      </span>
+      <i class="fas fa-users"></i>
+    </button>
+  </div>
+  <app-tf-posts
+    [posts]="posts"
+    [isLoading]="isLoading"
+    (changePage)="changePageHandler($event)"
+    [totalPostsCount]="totalPostsNumber"
+    [postsPerPage]="postsPerPage"
+  ></app-tf-posts>
 </div>

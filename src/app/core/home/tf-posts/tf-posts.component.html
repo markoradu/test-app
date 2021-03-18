@@ -1,0 +1,69 @@
+<div class="player-posts">
+  <div
+    *ngFor="
+      let post of posts
+        | paginate
+          : {
+              itemsPerPage: postsPerPage,
+              currentPage: currentPage,
+              totalItems: totalPostsCount
+            };
+      trackBy: trackById
+    "
+    class="single-post"
+  >
+    <div class="avatar">
+      <img [src]="post.image || '/assets/profile/profile_default.jpeg'" />
+    </div>
+    <div class="name-username">
+      <a class="fullName">{{ post.name }}</a>
+    </div>
+    <div class="name-username">
+      <div class="avatar">
+        <img [src]="post.image || '/assets/profile/profile_default.jpeg'" />
+      </div>
+      <a class="fullName">{{ post.name }}</a>
+    </div>
+    <div class="game">
+      <img [src]="post.gameImage" />
+      <p>{{ post.game }}</p>
+    </div>
+    <div class="role">
+      <p class="role-label">Role</p>
+      <ng-container *ngIf="post?.gameRoles.length > 0; else noRoles">
+        <p class="role-text">{{ post.gameRoles | arrayToString }}</p>
+      </ng-container>
+      <ng-template #noRoles>
+        <p class="role-text">No roles specified</p>
+      </ng-template>
+    </div>
+    <div class="rank">
+      <p class="rank-label">Current Rank</p>
+      <ng-container *ngIf="post?.rank?.trim().length > 0; else noRank">
+        <p class="rank-text">{{ post.rank }}</p>
+      </ng-container>
+      <ng-template #noRank>
+        <p class="rank-text">No rank specified</p>
+      </ng-template>
+    </div>
+    <div class="rank">
+      <p class="rank-label">Languages</p>
+      <p class="rank-text">{{ post.languages | arrayToString }}</p>
+    </div>
+  </div>
+
+  <div class="tournaments-pagination" *ngIf="posts.length > 0 && !isLoading">
+    <pagination-controls
+      class="pagination"
+      (pageChange)="changePageHandler($event)"
+      maxSize="10"
+      responsive="true"
+      previousLabel="Previous"
+      nextLabel="Next"
+    >
+    </pagination-controls>
+
+  <div class="no-results-found" *ngIf="totalPostsCount === 0 && !isLoading">
+    <h2>No results</h2>
+  </div>
+</div>

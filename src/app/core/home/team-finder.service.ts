@@ -43,6 +43,24 @@ export class TeamFinderService {
     return this.http.get(uri);
   }
 
+  getTeamsByGame(id: number) {
+    const uri = `teams/user/${id}`;
+
+    return this.http.get(uri);
+  }
+
+  getPlayerFinderPosts(params?: any) {
+    const uri = `team-finder-posts-by-user`;
+
+    return this.http.get(uri, { observe: 'response', params });
+  }
+
+  getTeamFinderPosts(params?: any) {
+    const uri = `team-finder-posts-by-team`;
+
+    return this.http.get(uri, { observe: 'response', params });
+  }
+
   addUserPost(data: any) {
     const uri = 'team-finder-user-post';
     return this.http.post(uri, data);

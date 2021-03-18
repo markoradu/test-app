@@ -5,6 +5,7 @@ import { Subscription, forkJoin } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { AssetsService } from 'src/app/core/home/assets.service';
 import { TeamFinderService } from 'src/app/core/home/team-finder.service';
+import { TfUserCreatePostModalState } from './tf-user-create-post-modal.state';
 
 @Component({
   selector: 'app-tf-modal',
@@ -51,8 +52,11 @@ export class TfModalComponent implements OnInit {
     private fb: FormBuilder,
     private teamFinderService: TeamFinderService,
     private assetsService: AssetsService,
-    public activeModal: NgbActiveModal
-  ) {}
+    public activeModal: NgbActiveModal,
+    private state: TfUserCreatePostModalState
+  ) {
+    this.options = this.state.options;
+  }
 
   ngOnInit(): void {
     this.gameDropdownLabel = this.gameLabel;
@@ -61,7 +65,7 @@ export class TfModalComponent implements OnInit {
   }
 
   private getFilters() {
-    const games = this.assetsService.getFilters('games');
+    const games = this.assetsService.getFilters('espl-games');
     forkJoin([games]).subscribe((filters) => {
       this.filters = {
         games: filters[0],
@@ -86,7 +90,7 @@ export class TfModalComponent implements OnInit {
   }
 
   private checkValidity(value: any) {
-    let minLength = 6;
+    let minLength = 1;
     if (this.filters['roles'] && this.filters['roles'].length > 0) {
       minLength++;
     }
@@ -114,18 +118,18 @@ export class TfModalComponent implements OnInit {
     };
     if (!this.editMode) {
       this.teamFinderService.addUserPost(payload).subscribe(() => {
-        this.activeModal.close(update);
+        this.state.modal.close(update);
       });
     } else {
       const editPayload = { ...payload, id: this.options.post.id };
       this.teamFinderService.updateUserPost(editPayload).subscribe(() => {
-        this.activeModal.close(update);
+        this.state.modal.close(update);
       });
     }
   }
 
   closeModal() {
-    this.activeModal.close();
+    this.state.modal.close();
   }
 
   populateForm(filters: Array<any>, name?: string): FormArray {
