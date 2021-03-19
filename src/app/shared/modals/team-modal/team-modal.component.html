@@ -1,0 +1,205 @@
+<div class="modal-container">
+  <div class="title">
+    <h1>User Finder</h1>
+  </div>
+  <div class="text">
+    <p>
+      Looking for a new team memer? You are at the right place. Fill the form
+      and enjoy the fragging.
+    </p>
+  </div>
+  <form [formGroup]="addPostForm" *ngIf="formInitiated" class="add-post-form">
+    <div
+      ngbDropdown
+      #gamesDrop="ngbDropdown"
+      [autoClose]="'outside'"
+      class="dropdown-black"
+      [ngClass]="{ required: !selectedGame }"
+    >
+      <button id="games" ngbDropdownToggle>
+        <span>{{ gameDropdownLabel }}</span>
+        <fa-icon
+          class="games-dropdown"
+          [icon]="faMinus"
+          *ngIf="gamesDrop.isOpen() == true; else opened"
+        ></fa-icon>
+        <ng-template #opened>
+          <fa-icon class="games-dropdown" [icon]="faPlus"></fa-icon>
+        </ng-template>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="games" class="games-dropdown">
+        <ng-container formArrayName="gameId" *ngIf="gameId_in?.controls.length">
+          <ng-container
+            *ngFor="let game of gameId_in?.controls | slice: 0:8; let i = index"
+          >
+            <label
+              class="checkbox-wraper"
+              [formGroupName]="i"
+              [ngClass]="{
+                active: gameId_in.controls[i]?.controls?.checked?.value
+              }"
+            >
+              {{ game.controls.name.value }}
+              <input
+                type="checkbox"
+                formControlName="checked"
+                (change)="gameSelected(game.value)"
+              />
+            </label>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div
+      ngbDropdown
+      #teamsDrop="ngbDropdown"
+      [autoClose]="'outside'"
+      class="dropdown-black"
+      [ngClass]="{ required: !selectedTeam && selectedGame }"
+    >
+      <button id="teams" ngbDropdownToggle [disabled]="!selectedGame">
+        <span>Teams</span>
+        <fa-icon
+          class="games-dropdown"
+          [icon]="faMinus"
+          *ngIf="gamesDrop.isOpen() == true; else opened"
+        ></fa-icon>
+        <ng-template #opened>
+          <fa-icon class="games-dropdown" [icon]="faPlus"></fa-icon>
+        </ng-template>
+      </button>
+
+      <div ngbDropdownMenu aria-labelledby="ranks" class="games-dropdown">
+        <ng-container formArrayName="teamId" *ngIf="teamId_in?.controls.length">
+          <ng-container
+            *ngFor="let team of teamId_in?.controls | slice: 0:8; let i = index"
+          >
+            <label
+              class="checkbox-wraper"
+              [formGroupName]="i"
+              [ngClass]="{
+                active: teamId_in.controls[i]?.controls?.checked?.value
+              }"
+            >
+              {{ team.controls.name.value }}
+              <input
+                type="checkbox"
+                formControlName="checked"
+                (change)="teamSelected(team.value)"
+              />
+              <span class="checkmark"></span>
+            </label>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div
+      ngbDropdown
+      #rolesDrop="ngbDropdown"
+      [autoClose]="'outside'"
+      class="dropdown-black"
+      [ngClass]="{ required: !selectedRole && roleId_in?.controls.length > 0 }"
+    >
+      <button
+        id="roles"
+        ngbDropdownToggle
+        [disabled]="!selectedGame || filters['roles']?.length === 0"
+      >
+        <span>Roles</span>
+        <fa-icon
+          class="games-dropdown"
+          [icon]="faMinus"
+          *ngIf="gamesDrop.isOpen() == true; else opened"
+        ></fa-icon>
+        <ng-template #opened>
+          <fa-icon class="games-dropdown" [icon]="faPlus"></fa-icon>
+        </ng-template>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="roles" class="games-dropdown">
+        <ng-container
+          formArrayName="gameRolesIds"
+          *ngIf="roleId_in?.controls.length"
+        >
+          <ng-container
+            *ngFor="let role of roleId_in?.controls | slice: 0:8; let i = index"
+          >
+            <label
+              class="checkbox-wraper"
+              [formGroupName]="i"
+              [ngClass]="{
+                active: roleId_in?.controls[i]?.controls?.checked?.value
+              }"
+            >
+              {{ role.controls.name.value }}
+              <input
+                type="checkbox"
+                formControlName="checked"
+                (change)="roleSelected(role.value)"
+              />
+            </label>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div
+      ngbDropdown
+      #ranksDrop="ngbDropdown"
+      [autoClose]="'outside'"
+      class="dropdown-black"
+      [ngClass]="{ required: !selectedRank && rankId_in?.controls.length > 0 }"
+    >
+      <button
+        id="ranks"
+        ngbDropdownToggle
+        [disabled]="!selectedGame || filters['ranks']?.length === 0"
+      >
+        <span>Ranks</span>
+        <fa-icon
+          class="games-dropdown"
+          [icon]="faMinus"
+          *ngIf="gamesDrop.isOpen() == true; else opened"
+        ></fa-icon>
+        <ng-template #opened>
+          <fa-icon class="games-dropdown" [icon]="faPlus"></fa-icon>
+        </ng-template>
+      </button>
+      <div ngbDropdownMenu aria-labelledby="ranks" class="games-dropdown">
+        <ng-container formArrayName="rankId" *ngIf="rankId_in?.controls.length">
+          <ng-container
+            *ngFor="let rank of rankId_in?.controls | slice: 0:8; let i = index"
+          >
+            <label
+              class="checkbox-wraper"
+              [formGroupName]="i"
+              [ngClass]="{
+                active: rankId_in.controls[i]?.controls?.checked?.value
+              }"
+            >
+              {{ rank.controls.name.value }}
+              <input
+                type="checkbox"
+                formControlName="checked"
+                (change)="rankSelected(rank.value)"
+              />
+            </label>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="error" [hidden]="isFormValid">
+      <p>All required fields need to be filled</p>
+    </div>
+
+    <div class="form-action-buttons">
+      <button
+        type="submit"
+        class="button"
+        (click)="submitForm(addPostForm)"
+        [disabled]="!isFormValid"
+      >
+        {{ editMode ? "Save post" : "Create post" }}
+      </button>
+      <button class="button" (click)="closeModal()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+<div class="team-posts">
+  <div
+    *ngFor="
+      let post of posts
+        | paginate
+          : {
+              itemsPerPage: postsPerPage,
+              currentPage: currentPage,
+              totalItems: totalPostsCount
+            };
+      trackBy: trackById
+    "
+    class="single-post"
+  >
+    <div class="avatar">
+      <img [src]="post.image || 'assets/profile/profile_default.jpg'" width="80" height="80"/>
+    </div>
+    <div class="name-username">
+      <p class="fullName">{{ post.name }}</p>
+    </div>
+    <div class="game">
+      <img [src]="post.gameImage" width="50" height="50" />
+      <p>{{ post.game }}</p>
+    </div>
+    <div class="role">
+      <p class="role-label">Role</p>
+      <ng-container *ngIf="post?.gameRoles.length > 0; else noRoles">
+        <p class="role-text">{{ post.gameRoles | arrayToString }}</p>
+      </ng-container>
+      <ng-template #noRoles>
+        <p class="role-text">No roles specified</p>
+      </ng-template>
+    </div>
+    <div class="rank">
+      <p class="rank-label">Minimum Rank</p>
+      <ng-container *ngIf="post?.rank?.trim().length > 0; else noRank">
+        <p class="rank-text">{{ post.rank }}</p>
+      </ng-container>
+      <ng-template #noRank>
+        <p class="rank-text">No rank specified</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="tournaments-pagination" *ngIf="posts.length > 0 && !isLoading">
+    <pagination-controls
+      class="pagination"
+      (pageChange)="changePageHandler($event)"
+      maxSize="10"
+      responsive="true"
+      previousLabel="Previous"
+      nextLabel="Next"
+    >
+    </pagination-controls>
+
+  <div class="no-results-found" *ngIf="totalPostsCount === 0 && !isLoading">
+    <h2>No results</h2>
+  </div>
+</div>

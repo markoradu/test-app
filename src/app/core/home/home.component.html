@@ -1,17 +1,41 @@
 <div class="home-wrapper">
-  <div class="action-buttons">
-    <button class="post-button" (click)="createUserPostHandler()">
-      <span>
-       Create a post for teams to find you
-      </span>
-      <fa-icon [icon]="faUsers"></fa-icon>
-    </button>
-  </div>
-  <app-tf-posts
-    [posts]="posts"
-    [isLoading]="isLoading"
-    (changePage)="changePageHandler($event)"
-    [totalPostsCount]="totalPostsNumber"
-    [postsPerPage]="postsPerPage"
-  ></app-tf-posts>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    <li ngbNavItem>
+      <a ngbNavLink>User</a>
+      <ng-template ngbNavContent
+        ><div class="action-buttons">
+          <button class="post-button" (click)="createUserPostHandler()">
+            <span> Create a post for teams to find you </span>
+            <fa-icon [icon]="faUsers"></fa-icon>
+          </button>
+        </div>
+        <app-tf-posts
+          [posts]="posts"
+          [isLoading]="isLoading"
+          (changePage)="changePageHandler($event)"
+          [totalPostsCount]="totalPostsNumber"
+          [postsPerPage]="postsPerPage"
+        ></app-tf-posts
+      ></ng-template>
+    </li>
+    <li ngbNavItem>
+      <a ngbNavLink>Team</a>
+      <ng-template ngbNavContent
+        ><div class="action-buttons">
+          <button class="post-button" (click)="createTeamPostHandler()">
+            <span> Create a team recruitment post </span>
+            <fa-icon [icon]="faUsers"></fa-icon>
+          </button>
+        </div>
+        <app-team-posts
+          [posts]="posts"
+          [isLoading]="isLoading"
+          (changePage)="changePageHandler($event)"
+          [totalPostsCount]="totalPostsNumber"
+          [postsPerPage]="postsPerPage"
+        ></app-team-posts
+      ></ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="nav"></div>
 </div>

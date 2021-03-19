@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { SuccessModalService } from 'src/app/shared/modals/success-modal/success-modal.service';
+import { TfTeamCreatePostModalService } from 'src/app/shared/modals/team-modal/tf-team-create-post-modal.service';
 
 import { TfUserCreatePostModalService } from 'src/app/shared/modals/tf-modal/tf-user-create-post-modal.service';
-
 import { TeamFinderService } from './team-finder.service';
 
 @Component({
@@ -24,14 +24,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   private advancedFilters$!: Subscription;
   private clearFilters$!: Subscription;
 
-  postsPerPage: number = 20;
+  postsPerPage: number = 5;
   page: number = 1;
   posts!: Array<any>;
   totalPostsNumber: number = 1;
   isLoading = true;
 
   constructor(
-    private tfAddPostService: TfUserCreatePostModalService,
+    private tfUserPostService: TfUserCreatePostModalService,
+    private tfTeamPostService: TfTeamCreatePostModalService,
     private successModal: SuccessModalService,
     private teamFinderService: TeamFinderService
   ) {}
@@ -134,7 +135,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   createUserPostHandler() {
-    this.tfAddPostService.open({}).then(
+    this.tfUserPostService.open({}).then(
       (data: any) => {
         const message = 'Your post is created';
         if (data && data.update) {
@@ -160,7 +161,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   createTeamPostHandler() {
-    this.tfAddPostService.open({}).then(
+    this.tfTeamPostService.open({}).then(
       (data: any) => {
         const message = 'Your post is created';
         if (data && data.update) {

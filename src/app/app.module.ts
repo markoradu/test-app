@@ -29,6 +29,8 @@ import { TfModalComponent } from './shared/modals/tf-modal/tf-modal.component';
 import { TfPostsComponent } from './core/home/tf-posts/tf-posts.component';
 import { ArrayToStringPipe } from './shared/pipes/arrayToString.pipe';
 import { SuccessModalComponent } from './shared/modals/success-modal/success-modal.component';
+import { TeamPostsComponent } from './core/home/team-posts/team-posts.component';
+import { TeamModalComponent } from './shared/modals/team-modal/team-modal.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { SuccessModalComponent } from './shared/modals/success-modal/success-mod
     TfPostsComponent,
     ArrayToStringPipe,
     SuccessModalComponent,
+    TeamPostsComponent,
+    TeamModalComponent,
   ],
   imports: [
     BrowserModule,

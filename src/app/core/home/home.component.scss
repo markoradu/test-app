@@ -10,16 +10,21 @@
   max-width: 100%;
   font-family: "Montserrat", sans-serif;
 
-  .post-button {
-    background: #f6f6f6;
-    color: #202229;
-    max-width: 100%;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: space-between;
+  .action-buttons {
+    margin: 1rem 0;
+    .post-button {
+      background: #f6f6f6;
+      color: #202229;
+      max-width: 100%;
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: space-between;
 
-    fa-icon {
-      margin-left: 3rem;
+      fa-icon {
+        margin-left: 3rem;
+      }
     }
   }
+
+
 }
