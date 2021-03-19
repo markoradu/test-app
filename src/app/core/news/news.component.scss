@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 .content-container {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "Montserrat", sans-serif;
+  margin: 1rem;
 
   .filter-wrapper {
     width: 100%;
@@ -17,7 +18,7 @@
   }
 
   .news-container {
-    width: 100%;
+    max-width: 100%;
     @media screen and (min-width: 600px) {
       height: 100%;
       display: grid;
