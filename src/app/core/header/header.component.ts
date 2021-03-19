@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faTrophy, faNewspaper, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrophy, faNewspaper, faUser, faSignOutAlt, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromRoot from '../../app.reducer';
@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   faNewspaper = faNewspaper;
   faUser = faUser;
   faLogout = faSignOutAlt;
+  faUsers = faUsers;
 
   currentUser$: Observable<any> | undefined;
 
