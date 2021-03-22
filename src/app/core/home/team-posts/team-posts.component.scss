@@ -46,6 +46,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      p {
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
       img {
         max-width: 100%;
         height: auto;

@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   posts!: Array<any>;
   totalPostsNumber: number = 1;
   isLoading = true;
-  active = 1;
+  active: number = 1;
 
   constructor(
     private tfUserPostService: TfUserCreatePostModalService,
