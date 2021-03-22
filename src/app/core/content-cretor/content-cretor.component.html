@@ -1,6 +1,9 @@
 <div class="creator-container">
   <div class="banner-wrapper">
-    <img src="../../../assets/content-creator/content-creator.png" alt="content-creator" />
+    <img
+      src="../../../assets/content-creator/content-creator.png"
+      alt="content-creator"
+    />
     <div class="text-wrapper">
       <h1>Are you a content creator?</h1>
       <p>
@@ -8,5 +11,118 @@
         Simply fill this contact form and we will reploy to you shortly!
       </p>
     </div>
+  </div>
+  <div class="form-wrapper">
+    <form class="form-content" [formGroup]="creatorForm">
+      <div class="title">
+        <h2>Tell us more</h2>
+      </div>
+      <div class="input-wrapper">
+        <label for="firstName">First name</label>
+        <input
+          type="text"
+          id="firstName"
+          placeholder="Enter your first name"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="input-wrapper">
+        <label for="lastName">Last name</label>
+        <input
+          type="text"
+          id="lastName"
+          placeholder="Enter your last name"
+          formControlName="lastName"
+        />
+      </div>
+      <div class="input-wrapper">
+        <label for="phoneNumber">Discord or Phone Number</label>
+        <input
+          type="number"
+          id="phoneNumber"
+          placeholder="(040) 1111-1111"
+          formControlName="phoneNumber"
+        />
+      </div>
+      <div class="select-wrapper">
+        <label>Date of Birth</label>
+        <div class="selectWrapper">
+          <select formControlName="day"></select>
+          <select formControlName="month"></select>
+          <select formControlName="year"></select>
+        </div>
+      </div>
+      <div class="select-wrapper">
+        <label for="language">Spoken Language</label>
+        <select id="language" formControlName="language"></select>
+      </div>
+      <div class="formControl">
+        <label for="streams">Where do you stream?</label>
+        <div class="streams-wrapper">
+          <div class="stream-button">
+            <div class="stream">
+              <input
+                type="radio"
+                name="streamPlatform"
+                id="youtube"
+                formControlName="streamPlatform"
+              />
+              <label for="youtube">Youtube</label>
+            </div>
+            <div class="stream">
+              <input
+                type="radio"
+                name="streamPlatform"
+                id="twitch"
+                formControlName="streamPlatform"
+              />
+              <label for="twitch">Twitch</label>
+            </div>
+            <div class="stream">
+              <input
+                type="radio"
+                name="streamPlatform"
+                id="facebook"
+                formControlName="streamPlatform"
+              />
+              <label for="facebook">Facebook</label>
+            </div>
+            <div class="stream">
+              <input
+                type="radio"
+                name="streamPlatform"
+                id="mixer"
+                formControlName="streamPlatform"
+              />
+              <label for="mixer">Mixer</label>
+            </div>
+          </div>
+          <div class="formControl">
+            <input
+              type="text"
+              placeholder="Enter your stream username"
+              formControlName="streamName"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="formControl">
+        <label>What Games Do You Play?</label>
+        <div class="area-wrapper">
+          <label for="message">Send Us a Message</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Click to type"
+            formControlName="message"
+          ></textarea>
+        </div>
+      </div>
+      <div class="submit">
+        <button type="submit" [disabled]="creatorForm.invalid">Send Partnership Request</button>
+      </div>
+    </form>
   </div>
 </div>
