@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
+import { ContentCretorComponent } from './core/content-cretor/content-cretor.component';
 import { HomeComponent } from './core/home/home.component';
 import { NewsComponent } from './core/news/news.component';
 import { ProfileComponent } from './core/profile/profile.component';
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'content-creator',
+    component: ContentCretorComponent,
     canActivate: [AuthGuard],
   },
 ];

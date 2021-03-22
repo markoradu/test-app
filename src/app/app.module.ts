@@ -31,6 +31,7 @@ import { ArrayToStringPipe } from './shared/pipes/arrayToString.pipe';
 import { SuccessModalComponent } from './shared/modals/success-modal/success-modal.component';
 import { TeamPostsComponent } from './core/home/team-posts/team-posts.component';
 import { TeamModalComponent } from './shared/modals/team-modal/team-modal.component';
+import { ContentCretorComponent } from './core/content-cretor/content-cretor.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { TeamModalComponent } from './shared/modals/team-modal/team-modal.compon
     SuccessModalComponent,
     TeamPostsComponent,
     TeamModalComponent,
+    ContentCretorComponent,
   ],
   imports: [
     BrowserModule,
