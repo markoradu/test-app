@@ -1,7 +1,7 @@
 <div class="home-wrapper">
-  <ul ngbNav #nav="ngbNav" class="nav-tabs" (navChange)="tabChangeHandler($event)" [(activeId)]="active">
-    <li [ngbNavItem]="1">
-      <a ngbNavLink>User</a>
+  <ul ngbNav #nav="ngbNav" class="nav-tabs" (navChange)="tabChangeHandler($event)" [(activeId)]="active" role="tablist">
+    <li [ngbNavItem]="1" role="tab">
+      <a ngbNavLink >User</a>
       <ng-template ngbNavContent
         ><div class="action-buttons">
           <button class="post-button" (click)="createUserPostHandler()">
@@ -18,8 +18,8 @@
         ></app-tf-posts
       ></ng-template>
     </li>
-    <li [ngbNavItem]="2">
-      <a ngbNavLink>Team</a>
+    <li [ngbNavItem]="2" role="tab">
+      <a ngbNavLink >Team</a>
       <ng-template ngbNavContent
         ><div class="action-buttons">
           <button class="post-button" (click)="createTeamPostHandler()">

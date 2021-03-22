@@ -13,13 +13,13 @@
     class="single-post"
   >
     <div class="avatar">
-      <img [src]="post.image || 'assets/profile/profile_default.jpg'" width="80" height="80"/>
+      <img [src]="post.image || 'assets/profile/profile_default.jpg'" width="80" height="80" [alt]="post.name"/>
     </div>
     <div class="name-username">
       <p class="fullName">{{ post.name }}</p>
     </div>
     <div class="game">
-      <img [src]="post.gameImage" width="50" height="50" />
+      <img [src]="post.gameImage" width="50" height="50" [alt]="post.game" />
       <p>{{ post.game }}</p>
     </div>
     <div class="role">
