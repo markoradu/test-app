@@ -58,6 +58,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.clearFilters$ = this.teamFinderService.clearFilters$
       .asObservable()
       .subscribe(this.getPosts.bind(this, true));
+
+      this.getPosts();
   }
 
   ngOnDestroy() {
