@@ -107,7 +107,7 @@ export class TeamModalComponent implements OnInit, OnDestroy {
   }
 
   private checkValidity(value: any) {
-    let minLength = 7;
+    let minLength = 2;
     if (this.filters['ranks'] && this.filters['ranks'].length > 0) {
       minLength++;
     }

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { NgbNavChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { SuccessModalService } from 'src/app/shared/modals/success-modal/success-modal.service';
 import { TfTeamCreatePostModalService } from 'src/app/shared/modals/team-modal/tf-team-create-post-modal.service';
@@ -24,11 +25,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   private advancedFilters$!: Subscription;
   private clearFilters$!: Subscription;
 
-  postsPerPage: number = 5;
+  postsPerPage: number = 10;
   page: number = 1;
   posts!: Array<any>;
   totalPostsNumber: number = 1;
   isLoading = true;
+  active = 1;
 
   constructor(
     private tfUserPostService: TfUserCreatePostModalService,
@@ -56,8 +58,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.clearFilters$ = this.teamFinderService.clearFilters$
       .asObservable()
       .subscribe(this.getPosts.bind(this, true));
-
-    this.getPosts();
   }
 
   ngOnDestroy() {
@@ -90,14 +90,24 @@ export class HomeComponent implements OnInit, OnDestroy {
     return filters;
   }
 
+  tabChangeHandler(tab: NgbNavChangeEvent) {
+    this.mainFiltersLoaded = false;
+    this.advancedFiltersLoaded = false;
+    this.active = tab.nextId;
+    this.getPosts();
+  }
+
   getPosts(clear?: boolean) {
     if (clear) {
       this.advancedFilters = {};
       this.mainFilters = {};
+    }
+    if (this.active === 1) {
+      this.getPlayerPosts();
     } else {
       this.getTeamPosts();
-      this.getPlayerPosts();
     }
+
   }
 
   getTeamPosts() {

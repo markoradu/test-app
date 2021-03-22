@@ -1,0 +1,86 @@
+.team-posts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .single-post {
+    display: grid;
+    grid-template-columns: 10% repeat(4, 22%);
+    @media only screen and (max-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    border-radius: 10px;
+    box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #f6f6f6;
+    width: 100%;
+
+    .avatar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .name-username {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .game {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .role {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .role-label{
+        color: orange;
+      }
+    }
+
+    .rank{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .rank-label {
+        color: orange;
+      }
+    }
+  }
+
+  .tournaments-pagination {
+    max-width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
+  }
+}
