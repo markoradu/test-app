@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { SuccessModalService } from 'src/app/shared/modals/success-modal/success-modal.service';
 import { GameService } from './game.service';
 import { LanguageService } from './language.service';
 
@@ -66,7 +66,8 @@ export class ContentCretorComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private languageService: LanguageService,
-    private gameService: GameService
+    private gameService: GameService,
+    private successModal: SuccessModalService,
   ) {}
 
   ngOnInit(): void {
@@ -95,15 +96,31 @@ export class ContentCretorComponent implements OnInit {
     });
   }
 
-  submitForm(): void {}
+  submitForm(): void {
+    this.openModal();
+    console.log(this.creatorForm.value);
+    this.createForm();
+  }
 
   onChange(): void {
     this.creatorForm.controls['streamName'].reset();
   }
 
   generateYears(): void {
-    const currentYear = (new Date()).getFullYear();
-    const range = (start: any, stop: any, step:any) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+    const currentYear = new Date().getFullYear();
+    const range = (start: any, stop: any, step: any) =>
+      Array.from(
+        { length: (stop - start) / step + 1 },
+        (_, i) => start + i * step
+      );
     this.years = [...range(currentYear, currentYear - 100, -1)];
+  }
+
+  openModal() {
+    const message = 'Form successfully submited!';
+    this.successModal
+    .open({
+      text: message,
+    })
   }
 }

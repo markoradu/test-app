@@ -133,7 +133,7 @@
             <input
               type="text"
               placeholder="Enter your {{
-                creatorForm.controls['streamPlatform']?.value
+                creatorForm.controls['streamPlatform']?.value | titlecase
               }} username"
               formControlName="streamName"
             />
@@ -144,7 +144,7 @@
         <label>What Games Do You Play?</label>
         <div class="games-wrapper" *ngIf="games$ | async as games">
           <div class="game" *ngFor="let game of games">
-            <input type="checkbox" id="{{ game.id }}" />
+            <input type="checkbox" id="{{ game.id }}"/>
             <label for="{{ game.id }}">
               <div class="image-wrapper">
                 <img
