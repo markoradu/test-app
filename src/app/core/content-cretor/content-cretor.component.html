@@ -38,7 +38,7 @@
       <div class="input-wrapper">
         <label for="phoneNumber">Discord or Phone Number</label>
         <input
-          type="number"
+          type="text"
           id="phoneNumber"
           placeholder="(040) 1111-1111"
           formControlName="phoneNumber"
@@ -47,14 +47,29 @@
       <div class="select-wrapper">
         <label>Date of Birth</label>
         <div class="selectWrapper">
-          <select formControlName="day"></select>
-          <select formControlName="month"></select>
-          <select formControlName="year"></select>
+          <select formControlName="day">
+            <option *ngFor="let day of days">{{ day }}</option>
+          </select>
+          <select formControlName="month">
+            <option *ngFor="let month of months">{{ month }}</option>
+          </select>
+          <select formControlName="year">
+            <option *ngFor="let year of years">{{year}}</option>
+          </select>
         </div>
       </div>
       <div class="select-wrapper">
         <label for="language">Spoken Language</label>
-        <select id="language" formControlName="language"></select>
+        <select
+          id="language"
+          formControlName="language"
+          *ngIf="languages$ | async as languages"
+        >
+          <option value="">Choose the language(s)</option>
+          <option *ngFor="let language of languages">
+            {{ language.name }}
+          </option>
+        </select>
       </div>
       <div class="formControl">
         <label for="streams">Where do you stream?</label>
@@ -65,42 +80,61 @@
                 type="radio"
                 name="streamPlatform"
                 id="youtube"
+                value="youtube"
+                [checked]="true"
                 formControlName="streamPlatform"
+                (change)="onChange()"
               />
-              <label for="youtube">Youtube</label>
+              <label for="youtube"
+                ><i class="fab fa-youtube"></i>&nbsp;&nbsp;Youtube
+              </label>
             </div>
             <div class="stream">
               <input
                 type="radio"
                 name="streamPlatform"
                 id="twitch"
+                value="twitch"
                 formControlName="streamPlatform"
+                (change)="onChange()"
               />
-              <label for="twitch">Twitch</label>
+              <label for="twitch"
+                ><i class="fab fa-twitch"></i>&nbsp;&nbsp;Twitch</label
+              >
             </div>
             <div class="stream">
               <input
                 type="radio"
                 name="streamPlatform"
                 id="facebook"
+                value="facebook"
                 formControlName="streamPlatform"
+                (change)="onChange()"
               />
-              <label for="facebook">Facebook</label>
+              <label for="facebook"
+                ><i class="fab fa-facebook-f"></i>&nbsp;&nbsp;Facebook</label
+              >
             </div>
             <div class="stream">
               <input
                 type="radio"
                 name="streamPlatform"
                 id="mixer"
+                value="mixer"
                 formControlName="streamPlatform"
+                (change)="onChange()"
               />
-              <label for="mixer">Mixer</label>
+              <label for="mixer"
+                ><i class="fab fa-mixer"></i>&nbsp;&nbsp;Mixer
+              </label>
             </div>
           </div>
           <div class="formControl">
             <input
               type="text"
-              placeholder="Enter your stream username"
+              placeholder="Enter your {{
+                creatorForm.controls['streamPlatform']?.value
+              }} username"
               formControlName="streamName"
             />
           </div>
@@ -108,6 +142,21 @@
       </div>
       <div class="formControl">
         <label>What Games Do You Play?</label>
+        <div class="games-wrapper" *ngIf="games$ | async as games">
+          <div class="game" *ngFor="let game of games">
+            <input type="checkbox" id="{{ game.id }}" />
+            <label for="{{ game.id }}">
+              <div class="image-wrapper">
+                <img
+                  [src]="game.coverImage"
+                  alt="{{ game.name }}"
+                  width="130"
+                  height="170"
+                />
+              </div>
+            </label>
+          </div>
+        </div>
         <div class="area-wrapper">
           <label for="message">Send Us a Message</label>
           <textarea
@@ -121,7 +170,13 @@
         </div>
       </div>
       <div class="submit">
-        <button type="submit" [disabled]="creatorForm.invalid">Send Partnership Request</button>
+        <button
+          type="submit"
+          [disabled]="creatorForm.invalid"
+          (click)="submitForm()"
+        >
+          Send Partnership Request
+        </button>
       </div>
     </form>
   </div>

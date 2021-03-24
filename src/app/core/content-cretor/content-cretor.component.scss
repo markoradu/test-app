@@ -7,6 +7,7 @@
   color: black;
   font-size: 1rem;
   max-width: 100%;
+
   .banner-wrapper {
     width: 100%;
     background-color: #484c5b;
@@ -33,6 +34,16 @@
     padding: 47.1px 30px 28.7px;
     width: 100%;
     .form-content {
+      border-radius: 10px;
+      box-shadow: 19px 17px 14px 0 rgb(0 0 0 / 10%);
+      input {
+        outline: none;
+        outline-style: none;
+      }
+      select {
+        outline: none;
+        outline-style: none;
+      }
       padding: 3rem;
       border-radius: 1rem;
       display: flex;
@@ -139,8 +150,52 @@
         width: 100%;
         .stream-button {
           display: flex;
+          flex-wrap: wrap;
           gap: 2rem;
           margin-bottom: 2rem;
+          .stream {
+            input {
+              visibility: hidden;
+            }
+            label {
+              cursor: pointer;
+              border-radius: 1rem;
+              margin-right: 1rem;
+              margin-bottom: 1rem;
+              padding: 0.5rem;
+              background-color: #ffffff;
+              color: #ffab2e;
+            }
+            input:checked ~ label {
+              background-color: #ffab2e;
+              color: #ffffff;
+            }
+          }
+        }
+      }
+
+      .games-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        .game {
+          input {
+            visibility: hidden;
+          }
+
+          input:checked ~ label {
+            .image-wrapper {
+              width: fit-content;
+              border: 2px solid #ffab2e;
+              border-radius: 1rem;
+            }
+          }
+          img {
+            cursor: pointer;
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+          }
         }
       }
 
