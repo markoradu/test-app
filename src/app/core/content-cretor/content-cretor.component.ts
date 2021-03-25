@@ -92,7 +92,7 @@ export class ContentCretorComponent implements OnInit {
       language: ['', Validators.required],
       streamPlatform: ['youtube', Validators.required],
       streamName: ['', Validators.required],
-      message: ['', Validators.required],
+      message: [''],
     });
   }
 

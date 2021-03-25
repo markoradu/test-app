@@ -223,6 +223,9 @@
           white-space: nowrap;
           border-radius: 10px;
         }
+        button:disabled {
+          color: #919191;
+        }
       }
     }
   }
