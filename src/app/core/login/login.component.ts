@@ -21,6 +21,11 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
 
+  public account = {
+    password: null,
+  };
+  public barLabel: string = 'Password strength:';
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,

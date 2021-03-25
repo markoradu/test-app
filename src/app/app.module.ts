@@ -32,6 +32,7 @@ import { SuccessModalComponent } from './shared/modals/success-modal/success-mod
 import { TeamPostsComponent } from './core/home/team-posts/team-posts.component';
 import { TeamModalComponent } from './shared/modals/team-modal/team-modal.component';
 import { ContentCretorComponent } from './core/content-cretor/content-cretor.component';
+import { PasswordStrengthBarComponent } from './shared/password-strength-bar/password-strength-bar.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ContentCretorComponent } from './core/content-cretor/content-cretor.com
     TeamPostsComponent,
     TeamModalComponent,
     ContentCretorComponent,
+    PasswordStrengthBarComponent,
   ],
   imports: [
     BrowserModule,
