@@ -12,74 +12,107 @@ import {
   styleUrls: ['./password-strength-bar.component.scss'],
 })
 export class PasswordStrengthBarComponent implements OnInit, OnChanges {
-  @Input() passwordToCheck!: string;
-  @Input() barLabel!: string;
+  @Input() public passwordToCheck!: string;
 
   bar0!: string;
   bar1!: string;
   bar2!: string;
   bar3!: string;
-  bar4!: string;
 
-  colors = ['#F00', '#F90', '#FF0', '#9F0', '#0F0'];
+  private colors: string[] = ['darkred', 'orangered', 'orange', 'yellowgreen'];
+
+  msg!: string;
+  msgColor!: string;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  static measureStrength(pass: string) {
-    let score: number = 0;
-    // award every unique letter until 5 repetitions
-    let letters: any = {};
-    for (let i = 0; i < pass.length; i++) {
-      letters[pass[i]] = (letters[pass[i]] || 0) + 1;
-      score += 5.0 / letters[pass[i]];
-    }
-    // bonus points for mixing it up
-    let variations: any = {
-      digits: /\d/.test(pass),
-      lower: /[a-z]/.test(pass),
-      upper: /[A-Z]/.test(pass),
-      nonWords: /\W/.test(pass),
-    };
-    let variationCount: number = 0;
-    for (let check in variations) {
-      variationCount += variations[check] ? 1 : 0;
-    }
-    score += (variationCount - 1) * 10;
-    return Math.trunc(score);
-  }
+  checkStrength(pass: string): number {
+    // 1
+    let force = 0;
 
-  getColor(score: number) {
-    let idx: number = 0;
-    if (score > 90) {
-      idx = 4;
-    } else if (score > 70) {
-      idx = 3;
-    } else if (score >= 40) {
-      idx = 2;
-    } else if (score >= 20) {
-      idx = 1;
+    // 2
+    const regex = /[$-/:-?{-~!"^_@`\[\]]/g;
+    const lowerLetters = /[a-z]+/.test(pass);
+    const upperLetters = /[A-Z]+/.test(pass);
+    const numbers = /[0-9]+/.test(pass);
+    const symbols = regex.test(pass);
+
+    // 3
+    const flags = [lowerLetters, upperLetters, numbers, symbols];
+
+    // 4
+    let passedMatches = 0;
+    for (const flag of flags) {
+      passedMatches += flag === true ? 1 : 0;
     }
-    return {
-      idx: idx + 1,
-      col: this.colors[idx],
-    };
+
+    // 5
+    force += 2 * pass.length + (pass.length >= 8 ? 1 : 0);
+    force += passedMatches * 10;
+
+    // 6
+    force = pass.length <= 8 ? Math.min(force, 10) : force;
+
+    // 7
+    force = passedMatches === 1 ? Math.min(force, 10) : force;
+    force = passedMatches === 2 ? Math.min(force, 20) : force;
+    force = passedMatches === 3 ? Math.min(force, 30) : force;
+    force = passedMatches === 4 ? Math.min(force, 40) : force;
+
+    return force;
   }
 
   ngOnChanges(changes: { [propName: string]: SimpleChange }): void {
-    let password = changes['passwordToCheck'].currentValue;
-    this.setBarColors(5, '#DDD');
+    const password = changes.passwordToCheck.currentValue;
+    this.setBarColors(4, '#DDD');
     if (password) {
-      let c = this.getColor(
-        PasswordStrengthBarComponent.measureStrength(password)
-      );
-      this.setBarColors(c.idx, c.col);
+      const col = this.getColor(this.checkStrength(password));
+      this.setBarColors(col.index, col.color);
+      const pwdStrength = this.checkStrength(password);
+      switch (pwdStrength) {
+        case 10:
+          this.msg = 'Poor';
+          break;
+        case 20:
+          this.msg = 'Not Good';
+          break;
+        case 30:
+          this.msg = 'Average';
+          break;
+        case 40:
+          this.msg = 'Good';
+          break;
+      }
+    } else {
+      this.msg = '';
     }
   }
-  setBarColors(count: any, col: any) {
+
+  private getColor(score: number) {
+    let index = 0;
+    if (score === 10) {
+      index = 0;
+    } else if (score === 20) {
+      index = 1;
+    } else if (score === 30) {
+      index = 2;
+    } else if (score === 40) {
+      index = 3;
+    } else {
+      index = 4;
+    }
+    this.msgColor = this.colors[index];
+    return {
+      index: index + 1,
+      color: this.colors[index],
+    };
+  }
+
+  private setBarColors(count: number, col: string): void {
     for (let n = 0; n < count; n++) {
-      // @ts-ignore
+      //@ts-ignore
       this['bar' + n] = col;
     }
   }
