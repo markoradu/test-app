@@ -21,6 +21,10 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
 
+  colors = ['#f57900','#fcaf3e', '#73d216', '#00c401'];
+  messages = ['Weak', 'Average', 'Good', 'Strong'];
+  passBarMsgDisplay: boolean = true;
+
   public account = {
     password: null,
   };

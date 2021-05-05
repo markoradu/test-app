@@ -55,7 +55,10 @@
 
     <div class="password-check">
       <app-password-strength-bar
-        [passwordToCheck]="loginForm.value.password"
+        [password]="loginForm.value.password"
+        [colors]="colors"
+        [msgDisplay]="passBarMsgDisplay"
+        [messages]="messages"
       ></app-password-strength-bar>
     </div>
 
